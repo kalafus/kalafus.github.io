@@ -1,4 +1,4 @@
-# Privacy Policy — I Need a Meeting
+# Privacy Policy — I Need MA Meetings
 **Effective: August 16, 2025**
 
 ---
