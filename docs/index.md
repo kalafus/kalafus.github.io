@@ -1,1 +1,1 @@
-# [I Need a Meeting](https://kalafus.github.io/INeedAMeeting/)
+# [I Need MA Meetings](https://kalafus.github.io/INeedMAMeetings/)
