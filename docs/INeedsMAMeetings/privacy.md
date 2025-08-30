@@ -4,7 +4,13 @@
 ---
 
 ## ✅ No Collection
-We do not collect, transmit, or share any personal information. We interpret the second part of the Eleventh Tradition — “We need guard with special care the anonymity of all fellow MA members.” — as binding us never to do so.
+We do not collect, transmit, or share any information from you or your device. Not personal information, not technical data, not metadata. Nothing.
+
+We interpret the second part of the Eleventh Tradition — “_We need guard with special care the anonymity of all fellow MA members._” — as binding us never to do so. Here’s why we take that position:
+
+Many services say they “protect” data while still collecting so-called pseudonymous information — device versions, locations, IP addresses, or identifiers that can be re-combined (_fingerprinting_) by big tech companies to track people with surprising accuracy. We don’t play that game.
+
+**We don’t just promise to “protect” data — we refuse to take it in the first place.**
 
 That means:
 - No accounts
