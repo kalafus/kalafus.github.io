@@ -14,7 +14,7 @@ No. The app does not collect, store, or share any personal information. See our 
 No. This app is independently developed and not affiliated with [Marijuana Anonymous World Services (MAWS)](https://ma12.org).
 
 **Why did you make this?**
-This project was build as an act of service. In MA, many of us believe we only keep what we have by giving it away.
+This project was built as an act of service. In MA, many of us believe we only keep what we have by giving it away.
 
 **How are you funded?**
 This project runs entirely on donated developer time. It requires no infrastructure and is not funded by, or affiliated with, outside enterprises.
