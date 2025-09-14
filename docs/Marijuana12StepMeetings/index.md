@@ -1,6 +1,6 @@
-# I Needs MA Meetings – Support
+# Marijuana 12-Step Meetings – Support
 
-I Needs MA Meetings helps you find Marijuana Anonymous meetings quickly and easily. It is a free, independent app created in the spirit of service, to help support recovery.
+Marijuana 12-Step Meetings helps you find Marijuana Anonymous meetings quickly and easily. It is a free, independent app created in the spirit of service, to help support recovery.
 
 ## FAQ
 
@@ -8,7 +8,7 @@ I Needs MA Meetings helps you find Marijuana Anonymous meetings quickly and easi
 The app downloads the meeting list so it can also work offline.
 
 **Does the app collect personal data?**
-No. The app does not collect, store, or share any personal information. See our [Privacy Policy](https://kalafus.github.io/INeedsMAMeetings/privacy.html).
+No. The app does not collect, store, or share any personal information. See our [Privacy Policy](https://kalafus.github.io/Marijuana12StepMeetings/privacy.html).
 
 **Is this an official Marijuana Anonymous app?**
 No. This app is independently developed and not affiliated with [Marijuana Anonymous World Services (MAWS)](https://ma12.org).
@@ -23,4 +23,4 @@ This project runs entirely on donated developer time. It requires no infrastruct
 Questions or technical issues? Email us at [MAMeetingFinder-PrivacyPolicy.crimson605@8shield.net](mailto:MAMeetingFinder-PrivacyPolicy.crimson605@8shield.net).
 
 ## Legal
-[Privacy Policy](https://kalafus.github.io/INeedsMAMeetings/privacy.html)
+[Privacy Policy](https://kalafus.github.io/Marijuana12StepMeetings/privacy.html)

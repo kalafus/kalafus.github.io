@@ -1,4 +1,4 @@
-# Privacy Policy — I Needs MA Meetings
+# Privacy Policy — Marijuana 12-Step Meetings
 **Effective: August 16, 2025**
 
 ---
