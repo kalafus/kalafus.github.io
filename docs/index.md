@@ -1,1 +1,1 @@
-# [I Needs MA Meetings](https://kalafus.github.io/INeedsMAMeetings/)
+# [Marijuana 12-Step Meetings](https://kalafus.github.io/Marijuana12StepMeetings/)
