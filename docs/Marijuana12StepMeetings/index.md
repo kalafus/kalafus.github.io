@@ -4,9 +4,6 @@ Marijuana 12-Step Meetings helps you find Marijuana Anonymous meetings quickly a
 
 ## FAQ
 
-**Why do I need internet the first time I open the app?**
-The app downloads the meeting list so it can also work offline.
-
 **Does the app collect personal data?**
 No. The app does not collect, store, or share any personal information. See our [Privacy Policy](https://kalafus.github.io/Marijuana12StepMeetings/privacy.html).
 
