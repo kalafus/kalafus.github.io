@@ -16,6 +16,11 @@ This project was built as an act of service. In MA, many of us believe we only k
 **How are you funded?**
 This project runs entirely on donated developer time. It requires no infrastructure and is not funded by, or affiliated with, outside enterprises.
 
+**You join the meeting. A wild Zoom Troll appears!**
+You see a scroll: "[Defensive Charm for Online Meetings](https://kalafus.github.io/Marijuana12StepMeetings/zoom-troll-aikido-2025-06-07-rev-A2.pdf)"
+_What do you do?_
+▶ Retreat / Attack / Defend / [_Read Scroll 🪄_](https://kalafus.github.io/Marijuana12StepMeetings/zoom-troll-aikido-2025-06-07-rev-A2.pdf)
+
 ## Contact
 Questions or technical issues? Email us at [MAMeetingFinder-PrivacyPolicy.crimson605@8shield.net](mailto:MAMeetingFinder-PrivacyPolicy.crimson605@8shield.net).
 
