@@ -2,7 +2,8 @@
 [FAQ](https://kalafus.github.io/Marijuana12StepMeetings/)
 
 # Privacy Policy — Marijuana 12-Step Meetings
-**Effective: August 16, 2025**
+**Effective:** August 16, 2025
+**Last Update:** March 31, 2026
 
 ---
 
@@ -23,7 +24,7 @@ That means:
 - No data (or metadata) transmitted
 
 ## ✅ On Your Device
-Any app preferences or favorites are stored **only on your device** and never leave it. We do not even use iCloud for this app. This choice is simply to assure you completely that your information stays on your phone.
+All app data (e.g., preferences, favorites) is stored **only on your device** and never leaves it. We do not even use iCloud for this app. This choice is simply to assure you completely that your information stays on your phone.
 
 ## 🔗 External Links
 If you open external links (e.g. Zoom, Maps), your use of those services is governed by their respective privacy policies.
