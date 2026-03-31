@@ -1,3 +1,6 @@
+## Legal
+[FAQ](https://kalafus.github.io/Marijuana12StepMeetings/)
+
 # Privacy Policy — Marijuana 12-Step Meetings
 **Effective: August 16, 2025**
 
