@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>No Exit — Behind Closed Doors</title>
+  <meta name="description" content="A speculative reading of Sartre's No Exit as a room of continuous becoming." />
+  <style>
+    :root {
+      --bg: #0f0f12;
+      --panel: #17171d;
+      --panel-2: #1f1f28;
+      --ink: #f4f0e8;
+      --muted: #b9b0a3;
+      --accent: #f0b35a;
+      --accent-2: #c96a47;
+      --line: rgba(255,255,255,.08);
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+      --serif: Iowan Old Style, Palatino Linotype, Book Antiqua, Georgia, serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(240,179,90,.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(201,106,71,.08), transparent 25%),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      place-items: center;
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-card {
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow);
+      padding: clamp(1.5rem, 2vw, 2rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "Huis Clos";
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-family: var(--mono);
+      font-size: .78rem;
+      color: rgba(255,255,255,.22);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: .8rem;
+      color: var(--accent);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+    }
+
+    h1 { font-size: clamp(2.6rem, 6vw, 5.3rem); max-width: 10ch; }
+    h2 { font-size: clamp(1.8rem, 3.2vw, 2.8rem); }
+    h3 { font-size: 1.2rem; }
+
+    .lede {
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1.35fr .9fr;
+      align-items: end;
+    }
+
+    .quote-box, .note, .card, .faq, .timeline-step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .quote-box {
+      padding: 1rem 1.1rem;
+      align-self: stretch;
+    }
+
+    .quote-box p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .quote-box .small {
+      display: block;
+      margin-top: .65rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      padding: 1.1rem 1.1rem 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child, .faq p:last-child { margin-bottom: 0; }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--accent);
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: .65rem;
+    }
+
+    .pull {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .muted { color: var(--muted); }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-step {
+      padding: 1rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .timeline-step h3 { margin-left: .4rem; }
+    .timeline-step p, .timeline-step ul { margin-left: .4rem; }
+
+    .faq-wrap {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: start;
+    }
+
+    .faq {
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px dashed rgba(255,255,255,.12);
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+
+    .q {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .35rem;
+    }
+
+    .a {
+      color: var(--muted);
+    }
+
+    .a strong { color: var(--ink); }
+
+    .note {
+      padding: 1.1rem;
+      position: sticky;
+      top: 1rem;
+    }
+
+    .note pre {
+      white-space: pre-wrap;
+      margin: 0;
+      font-family: var(--mono);
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 2rem 0 4rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .smallcaps {
+      font-variant: small-caps;
+      letter-spacing: .04em;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .faq-wrap {
+        grid-template-columns: 1fr;
+      }
+      .note { position: static; }
+      h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-card">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">No Exit · behind closed doors · a speculative reading</div>
+          <h1>No Exit as a Room of Continuous Becoming</h1>
+          <p class="lede">
+            A reading of Sartre's play that takes the room less as a final sentence than as an infinite social crucible: a warm room, no unmet needs, no death left to fear, and no way out except through each other.
+          </p>
+        </div>
+        <aside class="quote-box">
+          <p class="pull">Hell is not other people. Hell is being unable to stop using other people to avoid yourself.</p>
+          <span class="small">And because eternity is long, avoidance eventually becomes less dramatic than repetitive.</span>
+        </aside>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <a class="eyebrow" href="https://raw.githubusercontent.com/kalafus/MachineLearningCurves/refs/heads/main/NO_EXIT.md">Theory</a>
+          <h2>The hopeful reading</h2>
+          <p class="lede">
+            The room is strange because it withholds ordinary excuses. They are warm. They are fed. They cannot die again. They cannot meaningfully escape consequence. Their suffering is therefore almost embarrassingly pure: projection, vanity, resentment, erotic entanglement, mutual haunting.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="tag">1 · No unmet needs</div>
+            <h3>Nothing external is wrong enough to explain the pain</h3>
+            <p class="muted">That matters. The room strips away scarcity theater. What remains is the machinery of self, running hot.</p>
+          </article>
+          <article class="card">
+            <div class="tag">2 · Post-living</div>
+            <h3>Death becomes duration</h3>
+            <p class="muted">If they are functionally immortal, then the room becomes less a verdict than an experiment with absurdly long observation time.</p>
+          </article>
+          <article class="card">
+            <div class="tag">3 · Endless repetition</div>
+            <h3>Madness loses glamour</h3>
+            <p class="muted">Given enough centuries, even your most cherished grievance starts sounding like bad office small talk with better tailoring.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Counter-reading</div>
+          <h2>What “hell is other people” sounds like here</h2>
+          <p class="lede">
+            Not wisdom. Not revelation. More like the line a person says at the peak of self-deception, right when the mirror becomes inconvenient and they decide the mirror is cruel.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Other people as mirrors</h3>
+            <p class="muted">Each character becomes a live surface for the traits the others cannot metabolize. They blame the mirror for showing them the face they brought into the room.</p>
+          </article>
+          <article class="card">
+            <h3>Other people as co-authors</h3>
+            <p class="muted">They hate each other, desire each other, absorb each other's damage, and become each other's atmosphere. The poison is shared. So is the possible medicine.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">No Exit 2</div>
+          <h2>Glimpses across an absurdly stretched eternity</h2>
+          <p class="lede">
+            Instead of a sequel driven by plot, imagine flashes from different phases: centuries apart, the same room, the same souls, but slowly different uses of each other.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-step">
+            <h3>Years 1–200 · Weaponized selfhood</h3>
+            <p class="muted">Everything is accusation. Every vulnerability is immediately converted into leverage. Desire and contempt are still indistinguishable.</p>
+          </article>
+          <article class="timeline-step">
+            <h3>Years 201–900 · Exhaustion of the bit</h3>
+            <p class="muted">They cannot even remember which injury was original. Their stories remain sharp, but their conviction starts to fray. Eternity makes even self-righteousness repetitive.</p>
+          </article>
+          <article class="timeline-step">
+            <h3>Years 901–3,000 · Involuntary tenderness</h3>
+            <p class="muted">Someone saves someone else a chair. Someone notices the tremor before the performance begins. Help appears before philosophy catches up.</p>
+          </article>
+          <article class="timeline-step">
+            <h3>Years 3,001–??? · Collaborative mischief</h3>
+            <p class="muted">They start messing with the room together. Not because they are healed, exactly, but because the alliance has become more interesting than the script.</p>
+          </article>
+          <article class="timeline-step">
+            <h3>Endless · Love after vanity</h3>
+            <p class="muted">Not innocence. Not purity. Something stranger: durable affection between beings who know too much about one another to keep pretending.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap faq-wrap">
+        <div>
+          <div class="section-head">
+            <a class="eyebrow" href="https://raw.githubusercontent.com/kalafus/MachineLearningCurves/refs/heads/main/NO_EXIT_FAQ.md">Orientation packet</a>
+            <h2>Welcome to the Room of Continuous Becoming</h2>
+            <p class="lede">
+              A lightly bureaucratic guide for new residents of the timeless shared living space.
+            </p>
+          </div>
+
+          <div class="faq">
+            <div class="faq-item">
+              <div class="q">Q: Is this heaven or hell?</div>
+              <div class="a">A: Yes.</div>
+            </div>
+            <div class="faq-item">
+              <div class="q">Q: What if I stay mad forever?</div>
+              <div class="a">A: Then your eternity is going to take longer than usual.</div>
+            </div>
+            <div class="faq-item">
+              <div class="q">Q: What do I do if my roommate hums constantly?</div>
+              <div class="a">A: Learn the harmony.</div>
+            </div>
+            <div class="faq-item">
+              <div class="q">Q: When does the door open?</div>
+              <div class="a">A: When you don't need to leave.</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="note">
+          <pre>Room Rules
+
+• You can't leave.
+• No mirrors.
+• No actual harm.
+• The door will not open until you all stop being jerks.
+• We recycle drama.
+
+Management would like to remind residents that
+repeating the same grievance for several centuries
+does not make it deeper.</pre>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+	<div class="wrap">
+		<img
+				src="https://raw.githubusercontent.com/kalafus/MachineLearningCurves/refs/heads/main/No Exit - A Theory.jpg"
+				alt="No Exit - A Theory"
+				style="display:block; width:100%; height:auto;"
+				/>
+	</div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><span class="smallcaps">© 2021 [James J Kalafus]. Licensed under the Eternal Cooperation License (ECL).</span></p>
+			<p>Redistribution permitted only with shared snacks and good faith.</p>
+    </div>
+  </footer>
+</body>
+</html>
