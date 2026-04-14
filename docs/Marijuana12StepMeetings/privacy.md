@@ -3,7 +3,7 @@
 
 # Privacy Policy — Marijuana 12-Step Meetings
 **Effective:** August 16, 2025
-**Last Update:** March 31, 2026
+**Last Update:** April 14, 2026
 
 ---
 
@@ -30,7 +30,7 @@ All app data (e.g., preferences, favorites) is stored **only on your device** an
 If you open external links (e.g. Zoom, Maps), your use of those services is governed by their respective privacy policies.
 
 ## ❤️  Age Rating
-This app is **rated 18+ (16+ in Brazil, 19+ in Korea)** per Apple App Store guidelines. It is not designed for children or minors.
+This app is **rated 13+ (14+ in Brazil, 12+ in Korea)** per Apple App Store guidelines.
 
 ## 🔄 Changes
 Any future changes to this policy will be made openly, in advance, and always consistent with the Traditions and Concepts of MA, especially the principle of guarding anonymity.
