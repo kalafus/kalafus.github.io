@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalafus Projects</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f8f7f4;
+      --text: #24211d;
+      --card: #ffffff;
+      --border: #ded8ce;
+      --link: #6b4f2a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171513;
+        --text: #f4efe7;
+        --card: #211e1a;
+        --border: #3a342e;
+        --link: #e0bd86;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main {
+      width: min(680px, calc(100% - 32px));
+      padding: 48px 0;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 24px;
+      letter-spacing: -0.03em;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    a {
+      display: block;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      color: var(--link);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Kalafus Projects</h1>
+    <ul>
+      <li><a href="https://kalafus.github.io/Marijuana12StepMeetings/">Marijuana 12-Step Meetings</a></li>
+      <li><a href="https://kalafus.github.io/noexit.html">No Exit</a></li>
+    </ul>
+  </main>
+</body>
+</html>
