@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "A2T5Z45954.us.kalaf.INeedsMAMeetings"
+        ],
+        "components": [
+          {
+            "/": "/MJ-App/m/*"
+          }
+        ]
+      }
+    ]
+  }
+}
