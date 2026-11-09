@@ -1,4 +1,4 @@
 "use strict";
 
-// The visible download link is also the authoritative forwarding destination.
+// Each permanent download page owns its destination in the visible fallback link.
 window.location.replace(document.getElementById("pdf-download").href);
