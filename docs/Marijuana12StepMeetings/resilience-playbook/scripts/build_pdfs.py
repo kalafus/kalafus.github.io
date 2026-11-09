@@ -149,6 +149,10 @@ def dialectics_table(element, styles):
 
 def content_block(element, styles):
     """Render every supported content block, rejecting unhandled structure."""
+    if element.tag == "blockquote" and "shared-note" in element.classes:
+        if len(element) != 1 or element[0].tag != "p":
+            raise ValueError("The shared-playbook note must contain one paragraph.")
+        return content_block(element[0], styles)
     if element.tag == "hr" and "conclusion-divider" in element.classes:
         return styles["conclusion-divider"]
     if element.tag == "div" and "data-dialectics" in element.attrib:
@@ -177,6 +181,29 @@ def opening(document, styles):
     first.append(Paragraph(escape(plain(document.get_element_by_id("document-subtitle"))), styles["subtitle"]))
     first += [content_block(element, styles) for element in document.get_element_by_id("introduction")]
     return first
+
+
+def append_closing_sections(document, pages, styles, section_ids):
+    """Keep shared cards and explicit closing-page breaks consistent in both views."""
+    title = plain(document.get_element_by_id("document-title"))
+
+    def start_page():
+        pages.append([Paragraph(escape(title.upper()), styles["kicker"])])
+
+    for section_id in section_ids:
+        section = document.get_element_by_id(section_id)
+        if "data-pdf-break-before" in section.attrib:
+            start_page()
+        for element in section:
+            if "data-pdf-skip" in element.attrib:
+                continue
+            if "data-pdf-break-before" in element.attrib:
+                start_page()
+            if element.tag == "section" and "conclusion-card" in element.classes:
+                pages[-1] += [content_block(child, styles) for child in element if "data-pdf-skip" not in child.attrib]
+            else:
+                pages[-1].append(content_block(element, styles))
+    pages[-1].append(content_block(document.get_element_by_id("independent-note"), styles))
 
 
 def make_stories(document, styles):
@@ -218,18 +245,7 @@ def make_stories(document, styles):
                     raise ValueError("Move a break before the first paragraph onto its principle.")
                 start_page(heading)
             pages[-1].append(content_block(element, styles))
-    for section_id in ("conclusion", "feedback"):
-        section = document.get_element_by_id(section_id)
-        if "data-pdf-break-before" in section.attrib:
-            start_page()
-        for element in section:
-            if "data-pdf-break-before" in element.attrib:
-                start_page()
-            if element.tag == "section" and "conclusion-card" in element.classes:
-                pages[-1] += [content_block(child, styles) for child in element]
-            else:
-                pages[-1].append(content_block(element, styles))
-    pages[-1].append(content_block(document.get_element_by_id("independent-note"), styles))
+    append_closing_sections(document, pages, styles, ("conclusion", "feedback"))
     return pages
 
 
@@ -252,8 +268,7 @@ def make_quick_stories(document, styles):
                 pages.append([Paragraph(escape(title.upper()), styles["kicker"]),
                               Paragraph(escape(plain(heading)) + " (continued)", styles["principle"])])
             pages[-1].append(content_block(element, styles))
-    pages[-1] += [content_block(element, styles) for element in document.get_element_by_id("conclusion")]
-    pages[-1].append(content_block(document.get_element_by_id("independent-note"), styles))
+    append_closing_sections(document, pages, styles, ("conclusion",))
     return pages
 
 

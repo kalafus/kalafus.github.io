@@ -68,6 +68,18 @@ class PublicationTests(unittest.TestCase):
                 self.builder.main()
         self.assert_publication_unchanged()
 
+    def test_digital_safety_overflow_preserves_both_document_pairs(self):
+        path = self.root / "index.html"
+        document = html.parse(str(path)).getroot()
+        paragraph = html.Element("p")
+        paragraph.text = "Overflow in the new digital-safety card must stop publication. " * 1000
+        document.get_element_by_id("digital-safety").append(paragraph)
+        path.write_bytes(html.tostring(document, encoding="utf-8"))
+        with patch.object(sys, "argv", ["build_pdfs.py"]), redirect_stdout(io.StringIO()):
+            with self.assertRaisesRegex(ValueError, "Revise the layout explicitly"):
+                self.builder.main()
+        self.assert_publication_unchanged()
+
     def test_invalid_destination_preserves_both_document_pairs(self):
         path = self.root / "quick-reference/light/index.html"
         document = html.parse(str(path)).getroot()
