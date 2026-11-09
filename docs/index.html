@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Marijuana12StepMeetings/app-store.css">
   <title>Kalafus Projects</title>
   <style>
     :root {
@@ -49,7 +50,9 @@
       display: grid;
       gap: 12px;
     }
-    a {
+    .app-project { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .app-project > a:first-child { flex: 1 1 240px; }
+    a:not(.app-store-badge) {
       display: block;
       padding: 18px 20px;
       border: 1px solid var(--border);
@@ -70,7 +73,10 @@
   <main>
     <h1>Kalafus Projects</h1>
     <ul>
-      <li><a href="https://kalafus.github.io/Marijuana12StepMeetings/">Marijuana 12-Step Meetings</a></li>
+      <li class="app-project">
+        <a href="https://kalafus.github.io/Marijuana12StepMeetings/">Marijuana 12-Step Meetings</a>
+        <a class="app-store-badge" href="https://apps.apple.com/us/app/marijuana-12-step-meetings/id6751428414"><img src="Marijuana12StepMeetings/assets/download-on-the-app-store.svg" width="120" height="40" alt="Download Marijuana 12-Step Meetings on the App Store"></a>
+      </li>
       <li><a href="https://kalafus.github.io/noexit.html">No Exit</a></li>
     </ul>
   </main>

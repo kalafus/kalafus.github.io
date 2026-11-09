@@ -1,0 +1,20 @@
+.app-store-promo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  font-size: 1rem;
+  color: var(--text);
+}
+.app-store-copy { flex: 1 1 220px; min-width: 0; }
+.app-store-copy p { margin: 0; }
+.app-store-name { font-weight: 600; }
+.app-store-badge { display: inline-block; flex: none; padding: 10px; line-height: 0; }
+.app-store-badge img { display: block; height: 40px; width: auto; }
+.app-store-badge:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+@media print {
+  .app-store-promo { display: none !important; }
+}
