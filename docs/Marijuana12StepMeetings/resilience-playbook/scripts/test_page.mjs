@@ -78,3 +78,39 @@ test('disabled browser storage leaves controls usable', () => {
   assert.equal(page.document.documentElement.dataset.theme, 'light');
   page.button.events.click(); assert(page.principles.every(p => p.open));
 });
+
+const forwardingSource = readFileSync(new URL('../../page-forward.js', import.meta.url), 'utf8');
+const legacyPages = new URL('../../openhearted-not-unguarded/', import.meta.url);
+const routes = ['', 'full-guide/', 'light/', 'dark/', 'quick-reference/light/', 'quick-reference/dark/'];
+
+function followOldAddress(route, base, filename = '') {
+  const html = readFileSync(new URL(`${route}index.html`, legacyPages), 'utf8');
+  const href = html.match(/id="page-destination" href="([^"]+)"/)[1];
+  const original = new URL(`openhearted-not-unguarded/${route}${filename}?source=saved%20link#principle-3`, base);
+  const link = { href: new URL(href, original).href };
+  let replaced;
+  runInNewContext(forwardingSource, {
+    URL,
+    document: { getElementById(id) { assert.equal(id, 'page-destination'); return link; } },
+    window: { location: { search: original.search, hash: original.hash, replace(href) { replaced = href; } } },
+  });
+  assert.equal(replaced, new URL(`resilience-playbook/${route}${original.search}${original.hash}`, base).href);
+  assert.equal(link.href, replaced);
+  const fallback = html.match(/<noscript><meta http-equiv="refresh" content="0; url=([^"]+)"><\/noscript>/)[1];
+  assert.equal(new URL(fallback, original).href, new URL(`resilience-playbook/${route}`, base).href);
+  return replaced;
+}
+
+test('every old reading and download address forwards with its query and section intact', () => {
+  for (const route of routes) {
+    for (const filename of ['', 'index.html']) followOldAddress(route, 'https://kalafus.github.io/Marijuana12StepMeetings/', filename);
+  }
+  const destination = followOldAddress('full-guide/', 'https://kalafus.github.io/Marijuana12StepMeetings/');
+  const guide = visit({ hash: new URL(destination).hash });
+  assert.equal(guide.principles[2].open, true);
+  assert.equal(guide.principles[2].summary.focused, true);
+});
+
+test('old file addresses also forward when previewing the site locally', () => {
+  for (const route of routes) followOldAddress(route, new URL('../../', import.meta.url).href, 'index.html');
+});

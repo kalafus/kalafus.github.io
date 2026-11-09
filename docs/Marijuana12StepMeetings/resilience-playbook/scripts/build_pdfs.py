@@ -308,6 +308,8 @@ def main():
     parser.add_argument("--font-dir", type=Path, default=Path("/System/Library/Fonts/Supplemental"))
     args = parser.parse_args()
     register_fonts(args.font_dir)
+    # Versioned downloads retain their published URLs after the guide's move.
+    pdf_directory = ROOT.parent / "openhearted-not-unguarded" / "pdfs"
     publications = []
     for source, routes, prefix in (
         (ROOT / "full-guide/index.html", ROOT, "openhearted-not-unguarded"),
@@ -324,9 +326,9 @@ def main():
             if parsed.scheme or parsed.netloc or parsed.query or parsed.fragment:
                 raise ValueError(f"PDF destination must be a local file: {link}")
             path = (forwarding_page.parent / unquote(parsed.path)).resolve()
-            expected = ROOT / "pdfs" / f"{prefix}-{edition}-{theme}.pdf"
+            expected = pdf_directory / f"{prefix}-{edition}-{theme}.pdf"
             if path != expected:
-                raise ValueError(f"{theme} forwarding link must target {expected.relative_to(ROOT)}")
+                raise ValueError(f"{theme} forwarding link must target {expected.relative_to(ROOT.parent)}")
             publications.append((document, theme, edition, path))
 
     # Prepare both complete pairs before publishing any final file. Per-file

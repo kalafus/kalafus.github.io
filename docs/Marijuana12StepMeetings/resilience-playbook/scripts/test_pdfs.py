@@ -1,4 +1,4 @@
-"""Verify that failed builds preserve the complete existing PDF publication."""
+"""Verify publication destinations and preservation when a PDF build fails."""
 
 from contextlib import redirect_stdout
 import importlib.util
@@ -21,7 +21,7 @@ class PublicationTests(unittest.TestCase):
     def setUp(self):
         temporary = TemporaryDirectory(prefix="openhearted-publication-test-")
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name).resolve()
+        self.root = Path(temporary.name).resolve() / "resilience-playbook"
         pages = ["index.html", "full-guide/index.html"]
         pages += [f"{folder}{theme}/index.html" for folder in ("", "quick-reference/") for theme in ("light", "dark")]
         self.existing = {}
@@ -44,7 +44,17 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(len(self.existing), 4)
         for path, content in self.existing.items():
             self.assertEqual(path.read_bytes(), content)
-        self.assertFalse(list(self.root.rglob("*.tmp")))
+        self.assertFalse(list(self.root.parent.rglob("*.tmp")))
+
+    def test_success_updates_both_pairs_at_existing_download_addresses(self):
+        with patch.object(sys, "argv", ["build_pdfs.py"]), redirect_stdout(io.StringIO()):
+            self.builder.main()
+        self.assertEqual(len(self.existing), 4)
+        for path in self.existing:
+            self.assertEqual(path.parent, self.root.parent / "openhearted-not-unguarded" / "pdfs")
+            self.assertTrue(path.read_bytes().startswith(b"%PDF-"))
+        self.assertFalse((self.root / "pdfs").exists())
+        self.assertFalse(list(self.root.parent.rglob("*.tmp")))
 
     def test_quick_reference_overflow_preserves_both_document_pairs(self):
         path = self.root / "index.html"
