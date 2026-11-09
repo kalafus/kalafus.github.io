@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A quick reference for WhatsApp group admins: handle scam posts, control admission, reset join links, and coordinate responses while keeping recovery conversations open.">
+    <title>Comprehensive guide · The WhatsApp Spam Dojo</title>
+    <link rel="canonical" href="https://kalafus.github.io/Marijuana12StepMeetings/whatsapp-spam-dojo/full-guide/">
+    <link rel="stylesheet" href="../../resilience-playbook/styles.css">
+    <link rel="stylesheet" href="../../app-store.css">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#guide">Skip to the admin guide</a>
+    <div class="page">
+      <nav class="page-nav" aria-label="Page navigation">
+        <a class="back-link" href="../../index.html#recovery-resources">Recovery resources</a>
+      </nav>
+      <header class="page-header">
+        <h1 id="guide-title">The WhatsApp Spam Dojo</h1>
+        <p id="guide-subtitle" class="subtitle">A Comprehensive Guide for Admins</p>
+        <p class="tagline">
+          <strong>Change the Locks, Keep the Welcome Mat</strong>
+        </p>
+        <nav class="reading-nav" aria-label="Choose how to read">
+          <a href="../index.html" class="reading-link">
+            <strong>Quick reference</strong>
+            <span>Key actions and settings</span>
+          </a>
+          <a href="index.html" class="reading-link" aria-current="page">
+            <strong>Comprehensive guide</strong>
+            <span>Explanations and documentation</span>
+          </a>
+        </nav>
+        <div class="downloads" role="group" aria-label="PDF downloads" data-pdf-skip="">
+          <a href="../light/index.html" class="download">Download light PDF</a>
+          <a href="../dark/index.html" class="download secondary">Download dark PDF</a>
+        </div>
+        <p class="download-note" data-pdf-skip="">Comprehensive guide PDFs · Light for printing, dark for reading on screen</p>
+      </header>
+      <main id="guide" class="guidance" tabindex="-1" data-reading-view="comprehensive">
+        <section id="scam-posts" class="guide-section incident-response" aria-labelledby="scam-posts-heading">
+          <h2 id="scam-posts-heading">If scam posts are flooding the group</h2>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="../index.html#scam-posts">Read a summary</a>
+          </p>
+          <p class="response-sequence">
+            <strong>Remove and report the offending accounts → Save relevant evidence → Delete offending posts → <a href="#entry-settings">Audit "Group permissions"</a> → <a href="#reset-join-links">Reset the join link</a> → Share the replacement selectively → <a href="#validated-blocklist">Update the validated blocklist</a> → <a href="#coordinate-incidents">Review pending join requests</a>.</strong>
+          </p>
+          <h3 class="surge-response">If messages are arriving faster than admins can remove them, temporarily set <strong>Send messages → Only admins</strong>. Restore <strong>All members</strong> when the disruption has passed.</h3>
+          <p>
+            <strong>The goal is to keep people talking and protect their ability to find recovery, while making repeat scam entry harder.</strong>
+          </p>
+        </section>
+        <nav class="section-jumps" aria-label="Guide sections">
+          <ul>
+            <li>
+              <a href="#entry-settings">1. Entry settings</a>
+            </li>
+            <li>
+              <a href="#reset-join-links">2. Join links</a>
+            </li>
+            <li>
+              <a href="#validated-blocklist">3. Blocklist</a>
+            </li>
+            <li>
+              <a href="#coordinate-incidents">4. Coordination</a>
+            </li>
+          </ul>
+        </nav>
+        <section id="why-removal-alone-isnt-enough" class="guide-section" aria-labelledby="why-removal-alone-isnt-enough-heading">
+          <h2 id="why-removal-alone-isnt-enough-heading">Why removal alone doesn't work</h2>
+          <p>Removing a scam account from a WhatsApp group doesn't prevent it from returning. If the person still has a working join link, that route remains available. WhatsApp has no built-in, persistent group- or community-wide blocklist that automatically rejects previously removed numbers.</p>
+          <p>The practical defense is <strong>controlled admission, precautionary link resets, and a shared record of verified scam activity</strong>. These measures complement one another: the link reset closes an old route, approval checks new requests, and the blocklist helps admins recognize repeat accounts.</p>
+        </section>
+        <section id="entry-settings" class="guide-section" aria-labelledby="entry-settings-heading">
+          <h2 id="entry-settings-heading">1. Lock down entry, not conversation</h2>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="../index.html#entry-settings">Read a summary</a>
+          </p>
+          <p>Go to <strong>Group info → Group permissions</strong> (labels vary by app version) and configure:</p>
+          <div class="settings-scroll" role="region" tabindex="0" aria-labelledby="entry-settings-heading">
+            <table class="settings-table">
+              <thead>
+                <tr>
+                  <th scope="col">Control</th>
+                  <th scope="col">Recommended setting</th>
+                  <th scope="col">What</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <strong>Add new members</strong> / <strong>Add other members</strong>
+                  </th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                  <td>Prevents ordinary members from directly adding people; WhatsApp also documents this setting as controlling who can create invitation links on some interfaces.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <strong>Invite via link</strong> / <strong>Invite via link or QR code</strong> (if shown)</th>
+                  <td>
+                    <strong>Only admins</strong> (if shown)</td>
+                  <td>Prevents members from creating or retrieving an invitation link through the group interface. If this permission does not appear, it is governed by the "Add new/other members" setting.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <strong>Require admin approval</strong> / <strong>Approve new members</strong>
+                  </th>
+                  <td>
+                    <strong>On</strong>
+                  </td>
+                  <td>Requires an admin to approve requests to join through an invitation link.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <strong>Edit group settings</strong>
+                  </th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                  <td>Prevents unauthorized changes to group information.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <strong>Send messages</strong>
+                  </th>
+                  <td>
+                    <strong>All members</strong>
+                  </td>
+                  <td>Keeps ordinary fellowship discussion open.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>These controls cannot stop someone from forwarding an invitation link they already possess. Link resets and admin approval provide separate protections against that route of entry.</p>
+          <h3 id="community-settings-heading">If you administer a WhatsApp Community</h3>
+          <p>In <strong>Community info → Community Settings</strong>, set both available permissions:</p>
+          <div class="settings-scroll" role="region" tabindex="0" aria-labelledby="community-settings-heading">
+            <table class="settings-table two-column-table">
+              <thead>
+                <tr>
+                  <th scope="col">Community permission</th>
+                  <th scope="col">Recommended setting</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <strong>Who can add new members</strong>
+                  </th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <strong>Who can add new groups</strong>
+                  </th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>These are <strong>community-level controls</strong>, separate from the group permissions above. Configure both levels when a group belongs to a community.</p>
+          <p>
+            <strong>For Communities:</strong> Have a <strong>Community admin</strong> remove an offending account <strong>from the Community</strong>, not just the group. This removes the account from <strong>all groups in that Community</strong>.</p>
+        </section>
+        <section id="reset-join-links" class="guide-section" aria-labelledby="reset-join-links-heading">
+          <h2 id="reset-join-links-heading">2. Reset join links when scams occur</h2>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="../index.html#reset-join-links">Read a summary</a>
+          </p>
+          <p>
+            <strong>If you see scam posts or receive credible reports of scam accounts that need to be removed, reset the affected group's join link as a precaution.</strong> You don't need to establish that the current link was how they entered.</p>
+          <p>In <strong>Group info → Share</strong> (labeled <strong>Invite via link</strong> on some versions), choose <strong>Reset link</strong>. Menu labels may vary by device. The old link stops working; people who have already joined aren't removed. If a <strong>community</strong> invitation link may also be providing access, reset that link too.</p>
+          <p>Replace the old link in meeting materials and other legitimate access points. Ask members <strong>not to post join links in public group chats</strong>. Sharing them in meetings, friend group chats, and direct messages is fine. Keep a straightforward way for newcomers to obtain the current link without making it publicly harvestable.</p>
+        </section>
+        <section id="validated-blocklist" class="guide-section" aria-labelledby="validated-blocklist-heading">
+          <h2 id="validated-blocklist-heading">3. Maintain a shared, validated blocklist</h2>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="../index.html#validated-blocklist">Read a summary</a>
+          </p>
+          <p>Use a shared document that <strong>authorized people can read and update</strong>. People who review join requests need access to consult it. Designate <strong>trusted points of contact</strong> who can reliably receive reports, evaluate evidence, and add or correct entries. No particular document provider is required.</p>
+          <p>
+            <strong>Validate before including a number on the blocklist.</strong> A request for financial assistance does not, by itself, establish a scam. But the circumstances surrounding a request, including evidence of deception, manipulation, or high pressure tactics, can be compelling. <strong>One well-documented incident may be sufficient.</strong> Judge the available conduct and evidence, not someone's character, presumed motives, or recovery status. Don't require proof of fraudulent intent when the conduct provides sufficient grounds for action.</p>
+          <p>Record-keeping recommendations:</p>
+          <ul>
+            <li>Record the <strong>phone number in international format</strong>, with its country code (for example, +1-888-555-5555); consider including the <strong>date</strong> and the <strong>observed conduct</strong>, and possibly a reference to the supporting evidence.</li>
+            <li>
+              <strong>Group by country code in numerical order; sort numbers numerically within each country-code group.</strong> Keep new entries in order as the document grows.<ul>
+                <li>Keep incident notes factual. Share screenshots or other details only with people who need them, and do not include unrelated members' personal information.</li>
+              </ul>
+            </li>
+            <li>Treat the list as <strong>correctable</strong>: reports can be mistaken and phone numbers can be reassigned. Review or remove entries when warranted.</li>
+            <li>Revisit read/write permissions when service responsibilities change.</li>
+            <li>Don't publish the list.</li>
+          </ul>
+          <p>
+            <strong>Keep unverified concerns separate from validated blocklist entries.</strong> An unverified report may still warrant prompt, proportionate precautions, such as declining or delaying a join request while checking details. Protecting the group needn't wait for a committee decision or certainty about someone's motives.</p>
+          <p>
+            <strong>When reviewing a join request</strong>, consult the blocklist and any available evidence. A listed number may justify refusing entry, but consider the possibility of an error or reassigned number. Neither an unfamiliar number nor a financial request is proof of bad faith or not being a recovering addict. Avoid demanding unnecessary personal disclosures as a condition of ordinary access.</p>
+        </section>
+        <section id="coordinate-incidents" class="guide-section" aria-labelledby="coordinate-incidents-heading">
+          <h2 id="coordinate-incidents-heading">4. Coordinate incidents among trusted servants</h2>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="../index.html#coordinate-incidents">Read a summary</a>
+          </p>
+          <p>Create a <strong>private coordination chat</strong> where admins and other relevant trusted servants can post reports, phone numbers, screenshots, timestamps, and actions taken. This gives blocklist maintainers evidence to work from.</p>
+          <p>Keep the conversation factual and the audience limited to people with a legitimate reason for access. <strong>The chat is for coordination, not mandatory preapproval</strong>: admins act promptly within their responsibilities and report back afterward.</p>
+          <h3 id="protective-actions-heading">Coordinating protective actions</h3>
+          <p>Establish shared expectations for reviewing join requests, removing suspicious accounts, resetting invitation links, and maintaining the blocklist. These can evolve with experience and don't need to anticipate every situation.</p>
+          <p>Use your judgment when circumstances aren't covered. Sometimes prompt action is appropriate; sometimes consulting other trusted servants first makes sense. <strong>You don't need perfect certainty to act responsibly.</strong>
+          </p>
+          <p>Use the coordination chat to share relevant evidence, document actions taken, discuss uncertainties, and learn from experience. Review and correct decisions when warranted.</p>
+        </section>
+        <section id="privacy-safeguards" class="guide-section" aria-labelledby="privacy-safeguards-heading">
+          <h2 id="privacy-safeguards-heading">5. Optional privacy safeguards</h2>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="../index.html#privacy-safeguards">Read a summary</a>
+          </p>
+          <p>These controls reduce the amount of past conversation a newly admitted bad actor can quickly collect or feed into outside analysis. They do <strong>not</strong> make a WhatsApp group confidential to everyone already admitted.</p>
+          <div class="settings-scroll" role="region" tabindex="0" aria-labelledby="privacy-safeguards-heading">
+            <table class="settings-table">
+              <thead>
+                <tr>
+                  <th scope="col">Control</th>
+                  <th scope="col">Recommended setting</th>
+                  <th scope="col">What it accomplishes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <strong>Advanced Chat Privacy or Restricted Chat</strong>
+                  </th>
+                  <td>
+                    <strong>On</strong>
+                  </td>
+                  <td>Restricts WhatsApp's built-in chat export, automatic saving of media, and in-chat Meta AI features.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <strong>Send message history</strong>
+                  </th>
+                  <td>
+                    <strong>Only admins</strong> (or disable member sharing, if shown as a toggle)</td>
+                  <td>Prevents ordinary members from passing earlier group messages to newcomers.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Recent-history sharing can provide a newcomer with earlier messages, and WhatsApp also permits history to be sent <strong>after</strong> someone joins. Admins retain the ability to send history and should use it thoughtfully. Advanced Chat Privacy and Restricted Chat do not stop screenshots, manual copying, photography of a screen, or all possibility of analysis outside WhatsApp. Neither setting hides messages posted after admission.</p>
+          <p>Members' phone numbers and messages may also be visible to others in the group. Admission checks and reduced history sharing lower exposure; they cannot guarantee privacy.</p>
+        </section>
+        <section id="documentation" class="guide-section documentation" aria-labelledby="documentation-heading">
+          <hr>
+          <h3 id="documentation-heading">WhatsApp documentation</h3>
+          <ul>
+            <li>
+              <a href="https://faq.whatsapp.com/526742385997912/">Group permissions and admin settings</a>
+            </li>
+            <li>
+              <a href="https://faq.whatsapp.com/3242937609289432/">Inviting people and resetting a group link</a>
+            </li>
+            <li>
+              <a href="https://faq.whatsapp.com/664523651672109/">Community invitation links</a>
+            </li>
+            <li>
+              <a href="https://faq.whatsapp.com/715385484388016/">Advanced Chat Privacy and Restricted Chat</a>
+            </li>
+            <li>
+              <a href="https://faq.whatsapp.com/841426356990637/">Adding or removing group members</a>
+            </li>
+            <li>
+              <a href="https://blog.whatsapp.com/introducing-group-message-history-a-more-private-way-to-catch-up-in-group-chats">Group Message History</a>
+            </li>
+          </ul>
+          <p class="source-note">
+            <em>November 2026. WhatsApp menu names and available settings may differ by device and app version.</em>
+          </p>
+        </section>
+      </main>
+      <footer class="page-footer">
+        <p id="independent-note">Independent project. Not affiliated with Marijuana Anonymous World Services.</p>
+        <p class="edition">
+          <time datetime="2026-11-09">November 9, 2026</time> · <span id="revision">v1.0.0</span>
+        </p>
+        <a href="../index.html" class="reading-return">Return to the quick reference</a>
+        <aside class="app-store-promo" aria-label="Marijuana 12-Step Meetings app">
+          <div class="app-store-copy">
+            <p class="app-store-name">Marijuana 12-Step Meetings</p>
+            <p>Find meetings and set meeting reminders.</p>
+          </div>
+          <a class="app-store-badge" href="https://apps.apple.com/us/app/marijuana-12-step-meetings/id6751428414">
+            <img src="../../assets/download-on-the-app-store.svg" width="120" height="40" alt="Download Marijuana 12-Step Meetings on the App Store">
+          </a>
+        </aside>
+      </footer>
+    </div>
+  </body>
+</html>

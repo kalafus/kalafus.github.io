@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A quick reference for WhatsApp group admins: handle scam posts, control admission, reset join links, and coordinate responses while keeping recovery conversations open.">
+    <title>Quick reference · The WhatsApp Spam Dojo</title>
+    <link rel="canonical" href="https://kalafus.github.io/Marijuana12StepMeetings/whatsapp-spam-dojo/">
+    <link rel="stylesheet" href="../resilience-playbook/styles.css">
+    <link rel="stylesheet" href="../app-store.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#guide">Skip to the admin guide</a>
+    <div class="page">
+      <nav class="page-nav" aria-label="Page navigation">
+        <a class="back-link" href="../index.html#recovery-resources">Recovery resources</a>
+      </nav>
+      <header class="page-header">
+        <h1 id="guide-title">The WhatsApp Spam Dojo</h1>
+        <p id="guide-subtitle" class="subtitle">A Quick Reference for Admins</p>
+        <p class="tagline">
+          <strong>Change the Locks, Keep the Welcome Mat</strong>
+        </p>
+        <nav class="reading-nav" aria-label="Choose how to read">
+          <a href="index.html" class="reading-link" aria-current="page">
+            <strong>Quick reference</strong>
+            <span>Key actions and settings</span>
+          </a>
+          <a href="full-guide/index.html" class="reading-link">
+            <strong>Comprehensive guide</strong>
+            <span>Explanations and documentation</span>
+          </a>
+        </nav>
+        <div class="downloads" role="group" aria-label="PDF downloads" data-pdf-skip="">
+          <a href="quick-reference/light/index.html" class="download">Download light PDF</a>
+          <a href="quick-reference/dark/index.html" class="download secondary">Download dark PDF</a>
+        </div>
+        <p class="download-note" data-pdf-skip="">Quick reference PDFs · Light for printing, dark for reading on screen</p>
+      </header>
+      <main id="guide" class="guidance" tabindex="-1" data-reading-view="quick">
+        <section id="scam-posts" class="guide-section incident-response" aria-labelledby="scam-posts-heading">
+          <h2 id="scam-posts-heading">When scam posts hit</h2>
+          <p class="response-sequence">
+            <strong>Remove/report accounts (Group, Community) → Save evidence → Delete scam posts → <a href="#entry-settings">Check permissions</a> → <a href="#reset-join-links">Reset the join link</a> → Share selectively → <a href="#validated-blocklist">Update the validated blocklist</a> → <a href="#coordinate-incidents">Review pending join requests</a>.</strong>
+          </p>
+          <p class="surge-response">
+            <strong>If posts arrive faster than admins can remove them:</strong> Temporarily set <strong>Send messages → Only admins</strong>. Restore <strong>All members</strong> when the disruption has passed.</p>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="full-guide/index.html#scam-posts">Read more about responding to scam posts</a>
+          </p>
+        </section>
+        <nav class="section-jumps" aria-label="Guide sections">
+          <ul>
+            <li>
+              <a href="#entry-settings">1. Entry settings</a>
+            </li>
+            <li>
+              <a href="#reset-join-links">2. Join links</a>
+            </li>
+            <li>
+              <a href="#validated-blocklist">3. Blocklist</a>
+            </li>
+            <li>
+              <a href="#coordinate-incidents">4. Coordination</a>
+            </li>
+          </ul>
+        </nav>
+        <section id="entry-settings" class="guide-section" aria-labelledby="entry-settings-heading">
+          <h2 id="entry-settings-heading">Lock down entry, not conversation</h2>
+          <p>
+            <strong>Group info → Group permissions</strong>
+          </p>
+          <div class="settings-scroll" role="region" tabindex="0" aria-labelledby="entry-settings-heading">
+            <table class="settings-table two-column-table">
+              <thead>
+                <tr>
+                  <th scope="col">Setting</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Add new members / Add other members</th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Invite via link / QR code (if shown)</th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Require admin approval / Approve new members</th>
+                  <td>
+                    <strong>On</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Edit group settings</th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Send messages</th>
+                  <td>
+                    <strong>All members</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <strong>If you administer a Community:</strong>
+            <strong>Community info → Community Settings</strong>
+          </p>
+          <div class="settings-scroll" role="region" tabindex="0" aria-labelledby="entry-settings-heading">
+            <table class="settings-table two-column-table">
+              <thead>
+                <tr>
+                  <th scope="col">Community permission</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Who can add new members</th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Who can add new groups</th>
+                  <td>
+                    <strong>Only admins</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="full-guide/index.html#entry-settings">Read more about entry settings</a>
+          </p>
+        </section>
+        <section id="reset-join-links" class="guide-section" aria-labelledby="reset-join-links-heading">
+          <h2 id="reset-join-links-heading">Reset the link; maintain access</h2>
+          <p>After scam posts or credible reports of scam accounts, use <strong>Group info → Share</strong> (or <strong>Invite via link</strong>) <strong>→ Reset link</strong>. Reset the community link too if it may provide access. Update legitimate meeting materials. Share the new link in meetings, friend chats, or DMs, <strong>not public group chats</strong>. Keep an easy way for newcomers to obtain it.</p>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="full-guide/index.html#reset-join-links">Read more about join links</a>
+          </p>
+        </section>
+        <section id="validated-blocklist" class="guide-section" aria-labelledby="validated-blocklist-heading">
+          <h2 id="validated-blocklist-heading">Keep a validated blocklist</h2>
+          <p>Use a <strong>shared, nonpublic document</strong> that authorized people can consult and maintain. Identify reliable contacts for reports and updates. Record numbers in international format; <strong>sort by country code, then numerically</strong>.</p>
+          <p>
+            <strong>Validate before listing.</strong> A financial request alone isn't proof of a scam; a single well-documented incident may be enough. <strong>Check join requests against the list.</strong>
+          </p>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="full-guide/index.html#validated-blocklist">Read more about the validated blocklist</a>
+          </p>
+        </section>
+        <section id="coordinate-incidents" class="guide-section" aria-labelledby="coordinate-incidents-heading">
+          <h2 id="coordinate-incidents-heading">Coordinate</h2>
+          <p>Use a <strong>private admin/trusted-servant chat</strong> to share relevant screenshots, phone numbers, and actions taken.</p>
+          <p id="privacy-safeguards">
+            <strong>Optional privacy controls:</strong>
+            <strong>Advanced Chat Privacy / Restricted Chat → On</strong>; <strong>Send message history → Only admins</strong>. These reduce exposure.</p>
+          <p class="source-note">
+            <em>For explanations, limitations, and documentation, see the <a href="full-guide/index.html">comprehensive guide</a>. Menu names may vary by device and WhatsApp version.</em>
+          </p>
+          <p class="more-guidance" data-pdf-skip="">
+            <a href="full-guide/index.html#coordinate-incidents">Read more about coordination</a>
+          </p>
+        </section>
+      </main>
+      <footer class="page-footer">
+        <p id="independent-note">Independent project. Not affiliated with Marijuana Anonymous World Services.</p>
+        <p class="edition">
+          <time datetime="2026-11-09">November 9, 2026</time> · <span id="revision">v1.0.0</span>
+        </p>
+        <a href="../resilience-playbook/index.html#digital-safety" class="reading-return">Practical digital safety in the Resilience Playbook</a>
+        <aside class="app-store-promo" aria-label="Marijuana 12-Step Meetings app">
+          <div class="app-store-copy">
+            <p class="app-store-name">Marijuana 12-Step Meetings</p>
+            <p>Find meetings and set meeting reminders.</p>
+          </div>
+          <a class="app-store-badge" href="https://apps.apple.com/us/app/marijuana-12-step-meetings/id6751428414">
+            <img src="../assets/download-on-the-app-store.svg" width="120" height="40" alt="Download Marijuana 12-Step Meetings on the App Store">
+          </a>
+        </aside>
+      </footer>
+    </div>
+  </body>
+</html>
