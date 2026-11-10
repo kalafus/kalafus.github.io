@@ -80,6 +80,17 @@ class PublicationTests(unittest.TestCase):
                 self.builder.main()
         self.assert_publication_unchanged()
 
+    def test_callout_overflow_preserves_both_document_pairs(self):
+        path = self.root / "full-guide/index.html"
+        document = html.parse(str(path)).getroot()
+        callout = document.find_class("practice-callout")[0]
+        callout[-1].tail = (callout[-1].tail or "") + "An oversized callout must stop publication. " * 1000
+        path.write_bytes(html.tostring(document, encoding="utf-8"))
+        with patch.object(sys, "argv", ["build_pdfs.py"]), redirect_stdout(io.StringIO()):
+            with self.assertRaisesRegex(ValueError, "Revise the layout explicitly"):
+                self.builder.main()
+        self.assert_publication_unchanged()
+
     def test_invalid_destination_preserves_both_document_pairs(self):
         path = self.root / "quick-reference/light/index.html"
         document = html.parse(str(path)).getroot()

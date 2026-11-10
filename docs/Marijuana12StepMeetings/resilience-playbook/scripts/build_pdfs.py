@@ -11,14 +11,45 @@ from pathlib import Path
 import sys
 
 from lxml import html
-from reportlab.platypus import Paragraph, Table
+from reportlab.lib import colors
+from reportlab.platypus import Paragraph, Table, TableStyle
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from pdf_common import (CONTENT_WIDTH, HEIGHT, PALETTES, inline, plain, register_fonts,
-                        styles_for, pdf_destination, publish_pdf_set, write_stories)
+                        styles_for as common_styles_for, pdf_destination, publish_pdf_set, write_stories)
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def styles_for(palette):
+    styles = common_styles_for(palette)
+    styles["callout-rules"] = TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor(palette["tint"])),
+        ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor(palette["border"])),
+        *[(edge + "PADDING", (0, 0), (-1, -1), 12)
+          for edge in ("LEFT", "RIGHT", "TOP", "BOTTOM")],
+    ])
+    return styles
+
+
+def practice_callout(element, styles):
+    paragraphs = [element] if element.tag == "p" else list(element)
+    if not paragraphs or any(p.tag != "p" or not plain(p) for p in paragraphs):
+        raise ValueError("A practice callout must contain nonempty paragraphs.")
+    if element.tag == "div" and ((element.text or "").strip() or any((p.tail or "").strip() for p in paragraphs)):
+        raise ValueError("Put all practice-callout text inside its paragraphs.")
+    blocks = []
+    for index, paragraph in enumerate(paragraphs):
+        markup = inline(paragraph)
+        if index == 0 and len(paragraph) and paragraph[0].tag == "strong" and not (paragraph.text or "").strip():
+            accent = styles["principle"].textColor.hexval().replace("0x", "#")
+            markup = markup.replace("<b>", f'<b><font color="{accent}">', 1)
+            markup = markup.replace("</b>", "</font></b><br/>", 1)
+        blocks.append(Paragraph(markup, styles["body"]))
+    # One cell keeps a passage and its follow-up together at the body type size.
+    return Table([[blocks]], colWidths=[CONTENT_WIDTH], style=styles["callout-rules"],
+                 hAlign="LEFT", spaceBefore=10, spaceAfter=12)
 
 
 def dialectics_table(element, styles):
@@ -40,6 +71,8 @@ def dialectics_table(element, styles):
 
 def content_block(element, styles):
     """Render every supported content block, rejecting unhandled structure."""
+    if element.tag in ("p", "div") and "practice-callout" in element.classes:
+        return practice_callout(element, styles)
     if element.tag == "blockquote" and "shared-note" in element.classes:
         if len(element) != 1 or element[0].tag != "p":
             raise ValueError("The shared-playbook note must contain one paragraph.")

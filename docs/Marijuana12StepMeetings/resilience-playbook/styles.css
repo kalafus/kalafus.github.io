@@ -79,6 +79,10 @@ strong { font-weight: 650; }
 .introduction { padding: 36px 0 40px; }
 .shared-note { margin: 0 0 20px; padding: 16px 20px; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--tint); }
 .shared-note > :last-child { margin-bottom: 0; }
+.practice-callout { margin: 24px 0; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--tint); color: var(--text); }
+.practice-callout > p:last-child { margin-bottom: 0; }
+p.practice-callout > strong:first-child,
+.practice-callout > p:first-child > strong:first-child { display: block; margin-bottom: 8px; color: var(--accent); }
 .pull-quote { margin: 28px 0; padding-left: 22px; border-left: 3px solid var(--accent); color: var(--accent); font: 400 clamp(1.45rem, 4vw, 1.9rem)/1.45 Georgia, "Times New Roman", serif; text-wrap: pretty; }
 .introduction > :last-child { margin-bottom: 0; }
 .section-header { display: flex; align-items: flex-end; gap: 24px; margin-bottom: 24px; }
@@ -180,6 +184,7 @@ h4 { margin: 24px 0 12px; color: var(--accent); font-size: 1.02rem; line-height:
   .dialectics-table { min-width: 0; font-size: 12pt; }
   .dialectics-table th, .dialectics-table td { padding: 6pt; }
   .dialectics-table tr { break-inside: avoid; }
+  .practice-callout { margin: 10pt 0; padding: 12pt; border-radius: 0; break-inside: avoid; }
   .conclusion { margin-top: 20px; }
   .conclusion-card { margin-top: 20px; padding: 20px 0 0; border-top: 1px solid var(--border); }
   .closing { font-size: 15pt; }
