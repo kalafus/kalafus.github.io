@@ -57,7 +57,7 @@ class PublicationTests(unittest.TestCase):
         for path in self.existing:
             reader = PdfReader(path)
             counts.append(len(reader.pages))
-            self.assertIn('v1.0.0', reader.metadata.title)
+            self.assertIn('v1.0.0' if '-quick-reference-' in path.name else 'v1.0.1', reader.metadata.title)
             self.assertIn('Quick Reference' if '-quick-reference-' in path.name else 'Comprehensive Guide', reader.metadata.title)
             links = [annotation.get_object() for page in reader.pages for annotation in page.get('/Annots', [])]
             destinations = [link['/Dest'] for link in links if '/Dest' in link]
