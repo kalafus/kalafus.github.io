@@ -59,7 +59,8 @@
       box-shadow: var(--shadow);
       padding: clamp(1.5rem, 2vw, 2rem);
       position: relative;
-      overflow: hidden;
+      /* Preserve clipping without creating a scroll container for the sticky quote. */
+      overflow: clip;
     }
 
     .hero-card::before {
@@ -115,6 +116,11 @@
     .quote-box {
       padding: clamp(1.25rem, 2vw, 1.75rem);
       align-self: stretch;
+    }
+
+    .quote-content {
+      position: sticky;
+      top: 1rem;
     }
 
     .quote-box .small {
@@ -257,7 +263,7 @@
       .faq-wrap {
         grid-template-columns: 1fr;
       }
-      .note { position: static; }
+      .note, .quote-content { position: static; }
       h1 { max-width: none; }
     }
   </style>
@@ -274,8 +280,10 @@
           </p>
         </div>
         <aside class="quote-box">
-          <p class="pull">Hell is not other people. Hell is being unable to stop using other people to avoid yourself.</p>
-          <span class="small">And because eternity is long, avoidance eventually becomes less dramatic than repetitive.</span>
+          <div class="quote-content">
+            <p class="pull">Hell is not other people. Hell is being unable to stop using other people to avoid yourself.</p>
+            <span class="small">And because eternity is long, avoidance eventually becomes less dramatic, more repetitive.</span>
+          </div>
         </aside>
       </div>
     </div>
