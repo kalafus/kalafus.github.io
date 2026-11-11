@@ -113,21 +113,16 @@
     }
 
     .quote-box {
-      padding: 1rem 1.1rem;
+      padding: clamp(1.25rem, 2vw, 1.75rem);
       align-self: stretch;
-    }
-
-    .quote-box p {
-      margin: 0;
-      font-size: 1rem;
-      color: var(--ink);
     }
 
     .quote-box .small {
       display: block;
-      margin-top: .65rem;
+      margin-top: 1rem;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+      line-height: 1.5;
     }
 
     section {
@@ -422,13 +417,16 @@ does not make it deeper.</pre>
     </section>
   </main>
 
-	<div class="wrap">
-		<img
-				src="https://raw.githubusercontent.com/kalafus/MachineLearningCurves/refs/heads/main/No Exit - A Theory.jpg"
-				alt="No Exit - A Theory"
-				style="display:block; width:100%; height:auto;"
-				/>
-	</div>
+  <div class="wrap">
+    <img
+      src="assets/no-exit-heavens-boot-camp.jpg"
+      alt="No Exit: A Theory. What if it's not hell… but just heaven's boot camp? Heaven is other people. Work on yourself. Build relationships. Don't annoy your roommates."
+      width="1024"
+      height="1536"
+      loading="lazy"
+      style="display:block; width:100%; height:auto;"
+    />
+  </div>
 
   <footer class="footer">
     <div class="wrap">
