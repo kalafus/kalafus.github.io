@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="strict-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src https://formsubmit.co; form-action https://formsubmit.co; base-uri 'none'">
+  <title>Send Feedback — Marijuana 12-Step Meetings</title>
+  <link rel="stylesheet" href="feedback.css">
+  <script type="module" src="feedback.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="app-name">Marijuana 12-Step Meetings</p>
+      <h1>Send feedback</h1>
+      <p>Found a problem or have an idea? Tell me what happened or what could be better.</p>
+    </header>
+
+    <form id="feedback-form" action="https://formsubmit.co/MAMeetingFinder-PrivacyPolicy.crimson605@8shield.net" method="post">
+      <div class="field">
+        <label for="message">Your feedback</label>
+        <textarea id="message" name="message" rows="7" maxlength="8000" required aria-describedby="message-hint"></textarea>
+        <p class="hint" id="message-hint">Please leave out personal details about yourself or other meeting members.</p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address <span class="optional">(optional)</span></label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" maxlength="254" aria-describedby="email-hint">
+        <p class="hint" id="email-hint">Include your email if you’d like a reply. You can leave it blank.</p>
+      </div>
+
+      <input type="hidden" name="_subject" value="Marijuana 12-Step Meetings — app feedback">
+      <input type="hidden" name="_url" value="https://kalafus.github.io/Marijuana12StepMeetings/feedback/">
+      <input type="hidden" name="_next" value="https://kalafus.github.io/Marijuana12StepMeetings/feedback/thanks.html">
+      <div class="honey" aria-hidden="true">
+        <label for="website">Leave this field empty</label>
+        <input id="website" name="_honey" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <details>
+        <summary>How your feedback is handled</summary>
+        <p>Your message and any email address you enter are sent to the app’s developer through FormSubmit. FormSubmit retains submissions for 30 days and may present a spam-prevention check.</p>
+        <p>GitHub and FormSubmit receive ordinary web-request information. GitHub logs visitor IP addresses for security. The form sends the fields shown here and its delivery settings. The app adds no information to your feedback.</p>
+        <p><a href="../privacy.html" target="_blank" rel="noopener noreferrer">App privacy policy</a> · <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit privacy policy</a></p>
+      </details>
+
+      <button id="send-feedback" type="submit">Send feedback</button>
+      <p id="feedback-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <section id="feedback-success" class="success" hidden aria-labelledby="success-title">
+      <h2 id="success-title" tabindex="-1">Thank you</h2>
+      <p>Your feedback has been submitted to the app’s developer. You can return to the app.</p>
+    </section>
+
+    <footer>
+      <a href="mailto:MAMeetingFinder-PrivacyPolicy.crimson605@8shield.net">Contact by email</a>
+      <a href="../privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+    </footer>
+  </main>
+</body>
+</html>
