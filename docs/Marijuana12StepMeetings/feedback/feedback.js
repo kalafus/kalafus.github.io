@@ -12,7 +12,7 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (submitting) return;
 
-  message.setCustomValidity(message.value.trim() ? "" : "Please enter your feedback.");
+  message.setCustomValidity(message.value.trim() ? "" : "What would you like to share?");
   if (!form.reportValidity()) return;
 
   const fields = Object.fromEntries(new FormData(form));
@@ -32,7 +32,7 @@ form.addEventListener("submit", async (event) => {
   email.readOnly = true;
   form.setAttribute("aria-busy", "true");
   status.dataset.state = "sending";
-  status.textContent = "Sending your feedback…";
+  status.textContent = "Sending your note…";
 
   try {
     const response = await fetch(endpoint, {
@@ -54,7 +54,7 @@ form.addEventListener("submit", async (event) => {
     document.getElementById("success-title").focus();
   } catch {
     status.dataset.state = "error";
-    status.textContent = "We couldn’t confirm your submission. Your message is still here. You can try again or use Contact by email below.";
+    status.textContent = "Your note is still here. We couldn’t confirm it was sent. You can try again or use Contact by email below.";
   } finally {
     clearTimeout(timeout);
     submitting = false;
