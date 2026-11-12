@@ -39,7 +39,7 @@ p { margin: 0 0 16px; }
 .intro { font-size: 1.15rem; }
 .context, .response-summary, .quick-reference { font-weight: 300; }
 .regular { font-weight: 400; }
-.quick-reference, .active-disruption, .response-title, .urgent { font-variant-caps: small-caps; }
+.quick-reference, .active-disruption, .response-title, .urgent, .mantra { font-variant-caps: small-caps; }
 .response-title, .urgent, strong { font-weight: 800; }
 .footnote-marker { font-size: 0.5em; font-weight: 400; font-variant-caps: normal; line-height: 0; }
 .headline-note { position: relative; margin-bottom: 24px; }
