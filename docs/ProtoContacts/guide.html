@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101b18" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="How to back up, import, review, publish, and sync a zero-access encrypted vault with Proto Contacts.">
+  <link rel="canonical" href="https://kalafus.github.io/ProtoContacts/guide.html">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>How to use Proto Contacts</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="35" height="35">Proto Contacts</a>
+    <nav class="nav" aria-label="Main navigation"><a href="guide.html" aria-current="page">How to</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a class="nav-proton" href="for-proton.html">For Proton ↗</a></nav>
+  </div></header>
+  <main id="main">
+    <div class="page-hero"><div class="narrow">
+      <p class="eyebrow">Getting started</p>
+      <h1>Move carefully. Keep control.</h1>
+      <p class="lead">A short path from ordinary cloud Contacts to an encrypted vault, with the system-facing view you choose.</p>
+    </div></div>
+    <div class="page-content narrow prose">
+<div class="notice"><p><strong>Import and encrypted vault sync start on.</strong> Cleanup of synced-account originals defaults off and requires an account choice. Editable iPhone/iPad sharing can separately <a href="#local-duplicates">consolidate validated local duplicates</a>. Keep an independent backup and check validation before enabling account removal.</p></div>
+
+      <h2>1. Keep an independent backup</h2>
+      <p>Before changing Apple Contacts, keep an independent backup of each source account. For iCloud, <a href="https://support.apple.com/guide/icloud/import-export-and-print-contacts-mmfba748b2/icloud">export your contacts as a vCard</a>. On a Mac, a <a href="https://support.apple.com/guide/contacts/adrbdcfd32e6/mac">Contacts Archive</a> can preserve more address-book structure. Proto Contacts can import both formats. After importing, you can also make a <a href="#offline-backups">portable backup of the full vault</a>.</p>
+
+      <h2 id="import-accounts">2. Choose accounts and your Me Card</h2>
+      <p>Proto Contacts imports supported CardDAV and Exchange cloud accounts connected through Apple Contacts, including iCloud, as well as local contacts. Open <strong>Set Up Contacts</strong> on the main screen or in Settings. The guide saves progress; use <strong>Continue Setup</strong> in Settings or the ellipsis menu to return later. Closing or skipping unfinished setup keeps original removal paused.</p>
+      <ol>
+        <li>Grant Contacts access when requested. Full access is needed for a complete import and source cleanup; limited access sees only selected cards.</li>
+        <li>Open <strong>Accounts</strong>. Under <strong>Import Contacts</strong>, choose the supported local, Exchange, and CardDAV accounts you want to import. Newly discovered accounts default to importing while keeping their originals. Turning import off clears that account’s removal choice; turning it back on leaves removal off.</li>
+        <li>On iPhone or iPad, choose <strong>Choose Me Card…</strong> and select the card marked <strong>My Card</strong> in Apple Contacts. If none exists, choose <strong>I Have No Me Card</strong> and confirm. On Mac, the app identifies the system Me Card automatically. You can also mark a vault contact through <strong>This Is My Card</strong> in its context menu.</li>
+      </ol>
+      <p><strong>Your Me Card is imported into the encrypted vault</strong> when its account is selected, including when <strong>Include Me Card</strong> is off. That switch controls this device’s system sharing and original removal. Off protects the originals and withholds the app’s shared copy. On allows the same sharing and validated removal rules as other contacts. Review the choice in <strong>Settings → Apple Contacts Integration → Me Card</strong>.</p>
+      <p><strong>Remove Validated Originals</strong> applies to eligible synced accounts and starts off. Local accounts do not use that account-removal switch; editable iPhone/iPad sharing has separate duplicate-repair and deletion rules below. Saved account choices apply to this device; existing removal selections may differ from the new-vault defaults.</p>
+
+      <h2>3. Import, validate, and review</h2>
+      <p>Setup follows <strong>Import → Sync Review Information → Validation → Review → System Contacts Sharing</strong>. Choose <strong>Start</strong> beside Import Contacts. The app checks for current review information from your other devices, then shows validation and differences. Slow or offline review downloads can be deferred; unresolved reviews remain available afterward.</p>
+      <p><strong>Continue</strong> advances from Review without resolving every difference. <strong>Done</strong> can finish setup with originals kept while system sharing continues preparing. If you selected removal, the final removal step requires sharing readiness, a successful encrypted vault sync, and fresh complete validation. Setup does not use force removal.</p>
+      <p>Use <strong>Settings → Apple Contacts Integration → Import &amp; Review</strong> for <strong>Import Now</strong>, <strong>Review Differences</strong>, and <strong>Validation Details</strong>. Validation Details counts source records that have not passed validation and explains why. <strong>Refresh Import &amp; Validation</strong> in setup explicitly retries those checks. Unreadable fields, missing assets, incomplete visibility, and unresolved differences can keep originals in place.</p>
+      <p><strong>Import File…</strong> in the ellipsis menu accepts vCards, Apple Contacts Archives, and Proto Contacts backups. Review the preview before adding and merging records. Existing contacts are kept; competing values go through normal review. Apple’s public Contacts API does not expose Contact Poster designs.</p>
+
+      <h3 id="local-duplicates">Local duplicate repair on iPhone and iPad</h3>
+      <p>With setup complete and editable local sharing enabled, normal import and sharing retry cleanup of multiple native cards already linked to one vault contact. <strong>Import Now</strong> also discovers new independent cards. The app keeps an existing native card that preserves the family’s information, or completes it from compatible data already in those native cards before verifying it and removing extras. Vault-only fields are not added to complete a keeper.</p>
+      <p>Unreadable fields, unpreserved assets or native list memberships, unresolved differences, Me Card protection, import opt-outs, and export or recovery pauses can hold cleanup. A shared name alone does not make contacts duplicates. <strong>System Contacts Sharing → Additional Apple Contacts records</strong> shows linked extras, the contacts involved, and current hold reasons. Fix the reported cause; ordinary sharing retries safe repairs.</p>
+
+      <h2>4. Choose what other apps see</h2>
+      <p>Open <strong>Settings → System Contacts Sharing</strong>. In <strong>Contacts shared with system</strong>, the <strong>Share All Contacts with iOS/macOS</strong> switch chooses the baseline: on shares all except the <strong>Mask List</strong>; off shares only the <strong>Share List</strong>. Both lists are retained. Choose <strong>Apply</strong> to save this device’s choices, then use <strong>Choose published fields</strong> for All, Minimalist, None, or individual fields. All supported fields are selected by default. List membership stays in the vault.</p>
+      <p id="contact-posters"><strong>Contact Posters:</strong> Apple’s public Contacts API exposes contact photos, but not Poster designs. Photos can be shared when selected; full-screen Posters cannot be recreated in the shared cards. Keep original Apple Contacts cards if you need their Posters. Vault validation does not verify Poster preservation.</p>
+      <h3 id="sharing-destinations">Where shared contacts appear</h3>
+      <ul>
+        <li><strong>iPhone/iPad with cloud Contacts enabled:</strong> While any cloud Contacts account, such as iCloud, Google, or Exchange, is enabled in Apple’s system settings, Proto Contacts uses Apple’s read-only Contact Provider with system approval.</li>
+        <li><strong>iPhone/iPad with all cloud Contacts disabled:</strong> Proto Contacts shares into the editable on-device address book, shown as <strong>iPhone</strong> or <strong>iPad</strong>. Full Contacts access, enabled System Contacts Sharing, and an available local destination are required.</li>
+        <li><strong>Mac:</strong> Proto Contacts uses <strong>On My Mac</strong> when available. See <a href="#mac-privacy-setup">Mac setup</a> if that account is missing or disappears.</li>
+      </ul>
+      <p>These are Apple’s <a href="https://support.apple.com/en-ie/guide/iphone/iph7edacccf9/ios">Contacts account sync controls</a>. Turning an account’s import off inside Proto Contacts does not change the sharing route. <strong>Encrypted Vault Sync</strong> is separate from these native Contacts sync settings.</p>
+      <p><strong>Contacts ready to share</strong> reports prepared contacts; provider enrollment alone does not establish that they are visible in Apple Contacts. Manual enable/disable is under Advanced.</p>
+      <p>Sharing saved contacts can continue during a vault-sync outage. Masking or disabling sharing withdraws the app’s copies; independent native account copies and data another app has saved remain separate. Foreground approval reminders stop after three refusals or an explicit disable. Background import and sync do not present permission prompts.</p>
+
+      <h3 id="missing-contacts">Missing contacts and explicit deletion</h3>
+      <p>In editable iPhone/iPad sharing, deleting a contact from the vault can also remove its linked, unchanged local original and the app’s shared copy. Me Card protection still applies; changed native data needs review. Deletions detected in Apple Contacts keep vault contacts pending a decision.</p>
+      <p>Open <strong>Review Missing Contacts</strong>, or <strong>Differences → Missing Contacts → Review Deletions…</strong>, to choose deletion, restoration, or which contacts to keep. <strong>Restore All</strong> keeps the vault contacts and restores local system copies according to your sharing choices; <strong>Undo</strong> is available until you leave that review. Keeping cloud-account contacts does not recreate their server originals.</p>
+      <p>For stale or incomplete shared copies, use <strong>Advanced → Rebuild Shared Contacts</strong>. The read-only provider reloads its derived view. Local sharing repairs missing copies in place, with the duplicate-repair rules above still applying, and keeps vault contacts when resolving its mirror-deletion reviews. Use the missing-contacts review for deliberate restore/delete choices and Undo.</p>
+
+      <h3 id="mac-privacy-setup">Private sharing on Mac</h3>
+      <p>Proto Contacts can use <strong>On My Mac</strong> alongside cloud Contacts accounts when Apple makes it available. You may need to disable Contacts sync for every cloud account, including iCloud, to make it appear or keep it available. We have observed this availability issue, but have not confirmed an Apple requirement or its cause; an Apple Contacts bug is a possibility.</p>
+      <ol>
+        <li>Back up, import, and validate every account you want to preserve, including your Me Card. Resolve differences and verify encrypted vault sync.</li>
+        <li>If <strong>On My Mac</strong> is unavailable, or you want to stop native cloud Contacts sync, choose <strong>Contacts → Accounts</strong> in Apple Contacts, select each cloud account, and turn off <strong>Contacts</strong>. <a href="https://support.apple.com/guide/contacts/add-contacts-from-icloud-google-and-more-adrb7e5aaa2a/mac">Apple documents this account control</a>. Keep Proto Contacts’ <strong>Encrypted Vault Sync</strong> and iCloud <strong>Passwords &amp; Keychain</strong> on.</li>
+        <li>Check for <strong>On My Mac</strong> in Apple Contacts’ Lists sidebar, then choose <strong>Check Again</strong> in Proto Contacts’ system-sharing settings to refresh the available destination.</li>
+      </ol>
+      <p>If offered, <strong>Finish System Contacts Sharing Setup…</strong> in the ellipsis menu and <strong>System Contacts Sharing → Mac privacy setup</strong> provide the same steps. You can also change account sync directly in Apple Contacts. Disconnecting an account suspends it and leaves server copies in place. Original removal is a separate operation and pauses while a requested local mirror is unavailable.</p>
+      <p>Display preferences are in <strong>iPhone/iPad Settings → Apps → Proto Contacts</strong>, or inside the app’s Settings on Mac (<strong>⌘,</strong>). <strong>Date Reminders</strong> in app Settings controls local birthday and other date notifications. Names are hidden in notifications by default; enabling them can expose those details in notification previews.</p>
+
+      <h2>5. Sync your encrypted vault between devices</h2>
+      <p><strong>Sync encrypted vault between devices</strong> starts on for new vaults. Use the same Apple Account and enable <strong>Passwords &amp; Keychain</strong>. The app encrypts vault contents before sending them to private CloudKit storage; the key travels separately through <a href="https://support.apple.com/guide/security/sec1c89c6f3b/web">end-to-end-encrypted iCloud Keychain</a>. This gives stored vault contents <strong>zero-access encryption</strong>. Ordinary setup requires no manual key copying or Advanced Data Protection setting.</p>
+      <p><strong>Sync Now</strong> requests incoming changes as well as uploads. Check <strong>Settings → Encrypted Vault Sync</strong> for status, pending uploads, any scheduled retry, and error details. Local work stays available during network waits. A new empty device can wait for the existing vault before automatically importing Apple Contacts. Devices that started independently keep their local records; matching records consolidate, uncertain matches need review, and <strong>Merge history → Undo merge</strong> can separate a merge.</p>
+      <p>You can turn sync off in Settings; an existing saved opt-out stays off. Account import and system sharing remain separate controls.</p>
+
+      <h2 id="recovery-and-estate">6. Back up and plan recovery</h2>
+      <h3 id="offline-backups">Portable offline backups</h3>
+      <p>Choose <strong>Settings → Encrypted Vault Sync → Advanced Recovery → Export Backup…</strong>. The backup includes contacts, lists, photos, history, and pending reviews. Export does not require resolving those reviews first.</p>
+      <p><strong>Password protection</strong> and the <strong>post-quantum encryption</strong> layer have independent secrets. Both default on. Save the archive password and generated backup recovery key separately from the file; both are needed when both layers are enabled. These are different from your active vault recovery key, and neither the app nor iCloud can recover them. Disabling both layers requires confirmation and creates a readable file.</p>
+      <p>Wait for the app to verify the saved file. Use <strong>Import Contacts or Backup…</strong> to authenticate, preview, and add or merge it into the current vault. Import preserves existing contacts and can leave differences for review. Test recovery while you still have your working vault.</p>
+      <h3>Estate access</h3>
+      <p>Consider an <a href="https://support.apple.com/en-us/102631">Apple Legacy Contact</a> for Apple Account data. In Apple Settings use <strong>[your name] → Sign-In &amp; Security → Legacy Contact</strong>. Apple reviews an access request using the person’s Legacy Contact key and required supporting documentation. That access excludes iCloud Keychain and does not supply Proto Contacts’ vault key.</p>
+      <p>An offline backup, its chosen encryption secrets, and tested extraction instructions can provide a route independent of iCloud. A manually copied vault recovery key alone is not a backup of your contacts. Proto Contacts has no automatic estate handoff; plan access to the archive and its secrets separately from Apple Account inheritance.</p>
+
+      <h2 id="return-to-icloud">7. Export to Apple Contacts, including iCloud</h2>
+      <p>Open <strong>Settings → Apple Contacts Integration → Accounts → Export Contacts…</strong> and select a configured supported account. The destination can differ from your import accounts. Export makes readable native copies under that account’s security rules and keeps the encrypted vault.</p>
+      <ol>
+        <li>Pause original removal on your other devices and wait for running imports to finish. Confirm this in the export screen; offline devices and already-running imports may not have received a shared pause.</li>
+        <li>Choose <strong>Turn Off Removal &amp; Prepare…</strong>. This durably turns off removal and automatic import before checking access. When vault sync is enabled, a successful current sync is also required and shares the pause with linked devices. Cancellation, relaunch, and local settings reset do not cancel that pause.</li>
+        <li>Review the destination and plan. Complete independent copies are reused. Similar contacts with different details require confirmation to create separate copies; existing native records are never overwritten. For Exchange destinations, exporting lists is unavailable and requires an explicit contacts-without-lists choice.</li>
+        <li>Choose <strong>Export to [account]…</strong>, confirm, and wait for read-back verification. Supported fields, list memberships where available, and displayed photo crops are included regardless of system-sharing filters. Original photos stay in the vault. Contact Posters cannot be recreated in these exports because Apple’s public Contacts API does not expose their designs.</li>
+        <li>Verify delivery to the destination’s other devices. <strong>Finish &amp; Turn Off System Sharing</strong> checks the recorded export again before withdrawing this device’s provider or mirror. The vault, history, keys, and encrypted sync remain.</li>
+      </ol>
+      <p>After an interruption, prepare a fresh plan on the same device so saved progress can be reconciled. Local verification does not establish server or other-device delivery. Keep removal paused until you deliberately resume it through Accounts, and check every wanted copy before uninstalling. This preview still needs signed-device testing with real account providers.</p>
+
+      <h2>8. Reset preferences or the database</h2>
+      <p><strong>Reset App Settings to Defaults…</strong> requires confirmation and restores account, sync, sharing, display, and Me Card preferences. Original removal defaults off. Contacts, lists, history, keys, permissions, and setup progress are kept; a shared export pause remains in effect.</p>
+      <p><strong>Advanced Recovery → Reset Database on All Devices…</strong> is a separate destructive action with two confirmations. It erases vault data and history on this device and on updated linked devices when they next sync. Keys and app settings remain. Existing writable Apple Contacts cards—including previously shared copies—keep their native identifiers; the app retires their old ownership mappings. The read-only provider’s derived view is cleared. Back up first: removed originals are not recreated by reset, and an offline device cannot be erased until it reconnects.</p>
+      <hr class="rule">
+      <p class="small">Proto Contacts is a developer preview. Keep an independent backup while evaluating migration. See the <a href="faq.html">FAQ</a> for privacy, recovery, and support.</p>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="wrap"><p>© 2026 James J Kalafus. Proto Contacts is an independent project.</p><nav class="footer-links" aria-label="Footer navigation"><a href="./">Home</a><a href="faq.html">FAQ &amp; support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="for-proton.html">For Proton</a></nav></div></footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101b18" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Proto Contacts is an independent, encrypted address book for iPhone, iPad, and Mac. Migrate cloud contacts through Apple Contacts and choose what your device shares with other apps.">
+  <link rel="canonical" href="https://kalafus.github.io/ProtoContacts/">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Proto Contacts — Your address book, on your terms</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="icon.png" alt="" width="35" height="35">Proto Contacts</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="guide.html">How to</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a class="nav-proton" href="for-proton.html">For Proton ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Independent app · iPhone, iPad &amp; Mac</p>
+          <h1>Your address book, <span>on your terms.</span></h1>
+          <p class="lead">Bring contacts out of ordinary cloud Contacts and into an encrypted vault you control. Import from supported accounts connected through Apple Contacts, then choose what your phone and other apps can see.</p>
+          <div class="button-row">
+            <a class="button" href="guide.html">Read the how-to <span aria-hidden="true">&nbsp;→</span></a>
+            <a class="button secondary" href="privacy.html">Read the privacy policy</a>
+          </div>
+          <p class="hero-note">For example, Apple says ordinary iCloud Contacts is encrypted in transit and on its servers, but is <a href="https://support.apple.com/en-us/102651">not end-to-end encrypted</a>—even with Advanced Data Protection. Proto Contacts encrypts its separate vault before cloud sync, giving stored vault contents zero-access encryption.</p>
+        </div>
+        <div class="diagram" aria-label="How Proto Contacts separates the source address book, private vault, and selected system contacts">
+          <p class="diagram-title">The contact boundary</p>
+          <div class="flow-step"><span class="step-no">01</span><strong>Cloud Contacts accounts</strong><span>Import source · via Apple Contacts</span></div>
+          <div class="flow-arrow">Import &amp; reconcile</div>
+          <div class="flow-step vault"><span class="step-no">02</span><strong>Your encrypted vault</strong><span>Private records · encrypted before cloud sync</span></div>
+          <div class="flow-arrow">Publish only what you choose</div>
+          <div class="flow-step"><span class="step-no">03</span><strong>Phone, Mail &amp; other apps</strong><span>A limited system-facing copy</span></div>
+          <p class="diagram-foot">The original cloud cards remain separate until they are actually removed.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="fact-strip">
+      <div class="wrap">
+        <div class="fact"><strong>No sign-up required</strong><span>Your address book is not sent to us.</span></div>
+        <div class="fact"><strong>Encrypted sync starts on</strong><span>CloudKit gets ciphertext; iCloud Keychain shares the key between your devices.</span></div>
+        <div class="fact"><strong>Selective publication</strong><span>Choose which contacts and fields other apps receive.</span></div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2>One private record. A deliberate way out.</h2>
+          <p class="lead">The vault is the home for your contact record. Proto Contacts publishes only the contacts and fields you choose. Existing Apple Contacts cards remain separately readable until removed.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature"><span class="number">01 / BRING THEM IN</span><h3>Migrate with review</h3><p>Import from supported cloud accounts connected to Apple Contacts, local contacts, or a vCard. Changes and conflicts can be reviewed in the app instead of silently flattening different records.</p></article>
+          <article class="feature"><span class="number">02 / KEEP THEM PRIVATE</span><h3>Encrypt the full record</h3><p>Contacts, photos, notes, groups, and decisions live in the app-owned vault. Sync starts on for new vaults; zero-access encryption means the cloud provider cannot read the stored vault contents.</p></article>
+          <article class="feature"><span class="number">03 / USE THEM EVERYWHERE</span><h3>Share a chosen view</h3><p>Share all contacts except a Mask List, or share none except a Share List. Choose fields separately. Publish your chosen view to Apple Contacts for use by Phone and other apps.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap boundary">
+        <div>
+          <p class="eyebrow">Know what lives where</p>
+          <h2>Private means knowing the boundary.</h2>
+          <p class="lead">Import can be followed by removal of validated originals. System sharing publishes your chosen contacts and fields outside the vault. Each has its own controls.</p>
+          <div class="notice warning"><p><strong>Developer preview:</strong> cleanup of synced-account originals defaults off. Editable iPhone/iPad sharing can <a href="guide.html#local-duplicates">consolidate validated local duplicates</a>. Use the resumable <a href="guide.html">setup guide</a> to choose accounts, identify your Me Card, import, validate, and review. <a href="guide.html#offline-backups">Offline backups</a> and <a href="guide.html#return-to-icloud">reviewed export to Apple Contacts</a> provide independent copies.</p></div>
+          <p class="small">Encryption also changes recovery and estate access. <a href="guide.html#recovery-and-estate">See how both work.</a></p>
+        </div>
+        <dl class="boundary-list">
+          <div><dt>Original cloud cards</dt><dd>Remain in their source accounts until removed.</dd></div>
+          <div><dt>Full vault</dt><dd>Stored encrypted by the app on your device, with optional zero-access sync through CloudKit.</dd></div>
+          <div><dt>Published view</dt><dd>Proto Contacts shares selected contacts and fields with system Contacts and other authorized apps. Proto Contacts does not manage visibility of contact card records it did not create.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap proton-panel">
+        <p class="eyebrow">An open invitation to Proton</p>
+        <h2>Contacts deserve a first-class private home.</h2>
+        <p>Proton already protects contact details inside its ecosystem. This independent prototype explores the missing device-level piece: moving people out of ordinary cloud Contacts while keeping a useful, user-controlled view in Phone and other apps.</p>
+        <div class="button-row"><a class="button" href="for-proton.html">See the Proton proposal <span aria-hidden="true">&nbsp;→</span></a></div>
+        <p class="small" style="margin:20px 0 0">Proto Contacts is not affiliated with or endorsed by Proton.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 James J Kalafus. Proto Contacts is an independent project.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="guide.html">How to</a><a href="faq.html">FAQ &amp; support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="for-proton.html">For Proton</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

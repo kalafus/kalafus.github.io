@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101b18" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="An independent proposal to bring Proton Contacts into the Apple system contacts ecosystem with an encrypted vault and selective publication.">
+  <link rel="canonical" href="https://kalafus.github.io/ProtoContacts/for-proton.html">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>For Proton — Proto Contacts</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="35" height="35">Proto Contacts</a>
+    <nav class="nav" aria-label="Main navigation"><a href="guide.html">How to</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a class="nav-proton" href="for-proton.html" aria-current="page">For Proton ↗</a></nav>
+  </div></header>
+  <main id="main">
+    <div class="page-hero"><div class="narrow">
+      <p class="eyebrow">An open invitation to Proton</p>
+      <h1>Take private contacts beyond Mail.</h1>
+      <p class="lead">Proto Contacts is an independent Apple-platform prototype for a first-class private address book. It explores how a full record protected by zero-access cloud encryption can coexist with a deliberately limited view for Phone and other apps.</p>
+    </div></div>
+    <div class="page-content narrow prose">
+      <p><a href="https://proton.me/support/proton-contacts">Proton Contacts already protects contact details</a> and syncs them across Proton apps. Proton's <a href="https://proton.me/support/proton-contacts-mobile">mobile documentation lists syncing to the device's default Contacts app and becoming the default contacts app as future features</a>. That is the space this prototype explores on Apple devices.</p>
+
+      <div class="pitch-grid">
+        <article class="pitch-card"><h2>What exists here</h2><p>A native iPhone, iPad, and Mac app with an app-encrypted vault, Apple Contacts account import and conflict review, encrypted CloudKit sync on by default for new vaults, and a user-selected system-facing contact view.</p></article>
+        <article class="pitch-card"><h2>The Proton opportunity</h2><p>Bring that device-level experience to Proton Contacts: migrate away from ordinary cloud Contacts, keep the full record private, and let users choose the few fields their device needs. A Proton account connection and Proton-backed sync would be new joint product work; neither exists in this app today.</p></article>
+      </div>
+
+      <p><a href="implementation.html"><strong>Read the implementation notes →</strong></a> A worked example, short Swift excerpts, and the source locations for projection, zero-access sync, and validated cleanup.</p>
+
+      <h2>Why this matters</h2>
+      <p><a href="https://support.apple.com/en-us/102651">iCloud Mail, Calendar, and Contacts remain outside end-to-end encryption</a> even with Advanced Data Protection; Apple cites interoperability with existing mail and contact/calendar standards. People can choose a <a href="https://support.apple.com/en-us/121430">different default email app</a>, and Calendar supports <a href="https://support.apple.com/guide/iphone/iphc37be2016/ios">other accounts and a default calendar</a>. Apple's Default Apps list has no equivalent switch for a Contacts app. That makes migrating a live address book while preserving system integration a distinct problem.</p>
+      <p>There is a real account alternative: Apple lets users <a href="https://support.apple.com/en-gb/guide/iphone/iph7edacccf9/27/ios/27">add a CardDAV Contacts account and make it the default account for new contacts</a>. A conventional CardDAV account sends readable <a href="https://www.rfc-editor.org/rfc/rfc6352.html">vCards</a> to its server. Protecting the connection does not change that trust boundary: the account server can read the address book. Proton describes <a href="https://proton.me/learn/encryption/types-of-encryption/zero-access">zero-access encryption</a> as cloud storage the provider cannot read. To keep the provider from seeing contact contents even during sync, an app must encrypt before upload and decrypt locally before supplying readable fields to system Contacts. Apple's standard CardDAV client cannot perform that translation on its own. Proto Contacts explores the encrypted vault and selective system projection without a new account server.</p>
+      <p>Proto Contacts treats migration as a continuous process: it imports and reconciles source changes while cloud Contacts accounts remain in use as the app runs and resumes. The encrypted vault becomes the source of truth, then a controlled projection supplies selected fields. Publication uses Apple’s <a href="https://developer.apple.com/documentation/contactprovider">read-only Contact Provider</a> or an editable on-device address book, depending on the platform and enabled Contacts accounts. The <a href="guide.html#sharing-destinations">setup guide</a> explains those account conditions and Mac availability. After backup, import, and validation, users can disable native Contacts sync for the source accounts on each device while continuing encrypted vault sync. Disabling sync leaves server originals in place; removing them is a separate, validated operation. Encrypted CloudKit sync starts on for a new vault as a separate path: CloudKit gets ciphertext, while end-to-end-encrypted iCloud Keychain carries the vault key to the user's devices. Zero-access protects vault contents in the cloud; published fields, existing native cards, and copies another app saves are readable outside that boundary.</p>
+      <p>Apple <a href="https://support.apple.com/en-us/102431">documents estate access requests for Apple Accounts</a>, including a legal-documentation route when no Legacy Contact access key is available, and notes that it cannot decrypt some end-to-end-encrypted data. That makes estate access a documented user-experience concern. Whether it also influenced Apple's encryption choices is my inference: Apple cites interoperability, not estate access, for the Mail, Calendar, and Contacts exceptions. An encrypted replacement should surface the tradeoff and recommend <a href="https://support.apple.com/en-us/102631">Apple Legacy Contact</a> for Apple Account data where appropriate, while making clear that Legacy Contact cannot supply the vault key shared through iCloud Keychain. <a href="guide.html#recovery-and-estate">Recovery planning</a> must cover the vault itself.</p>
+      <p>The current build provides resumable setup, per-account import and removal choices, <a href="guide.html#offline-backups">portable offline backups</a>, and <a href="guide.html#return-to-icloud">reviewed export to configured Contacts accounts</a>. Synced-account original removal defaults off; editable iPhone/iPad sharing separately <a href="guide.html#local-duplicates">repairs validated local duplicates</a>. Export pauses removal before copying and verifies local results. Contact Posters, provider-specific field support, and delivery to other devices still limit a migration claim; signed-device testing remains necessary. This is a developer preview.</p>
+
+      <div class="notice"><p><strong>Interested in discussing it?</strong> I would welcome collaborating with Proton, joining a focused project there, or simply seeing this architecture inspire Proton's own work. Proto Contacts is independent and not affiliated with Proton. Email <a href="mailto:protocontacts.unread312@8alias.com">protocontacts.unread312@8alias.com</a> to start a conversation.</p></div>
+      <p class="cite-note">The Proton and Apple links above describe their respective products and security models checked on November 7, 2026. Proto Contacts does not connect to Proton services.</p>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="wrap"><p>© 2026 James J Kalafus. Proto Contacts is not affiliated with or endorsed by Proton.</p><nav class="footer-links" aria-label="Footer navigation"><a href="./">Home</a><a href="guide.html">How to</a><a href="faq.html">FAQ &amp; support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></footer>
+</body>
+</html>

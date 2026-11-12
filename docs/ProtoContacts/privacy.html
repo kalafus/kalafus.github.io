@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101b18" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Proto Contacts privacy policy: no developer collection, zero-access encrypted vault sync through iCloud, and control over system publication.">
+  <link rel="canonical" href="https://kalafus.github.io/ProtoContacts/privacy.html">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Privacy policy — Proto Contacts</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="35" height="35">Proto Contacts</a>
+    <nav class="nav" aria-label="Main navigation"><a href="guide.html">How to</a><a href="faq.html">FAQ</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a class="nav-proton" href="for-proton.html">For Proton ↗</a></nav>
+  </div></header>
+  <main id="main">
+    <div class="page-hero"><div class="narrow"><p class="eyebrow">Plain-English policy</p><h1>Your contacts are not our business.</h1><p class="lead">We do not collect your address book. Here is what the app, your device, and Apple services actually do.</p></div></div>
+    <div class="page-content narrow prose">
+<p class="meta"><strong>Effective:</strong> November 12, 2026 · <strong>Applies to:</strong> Proto Contacts for iPhone, iPad, and Mac, and this website.</p>
+
+      <h2>What we collect</h2>
+      <p><strong>Nothing from the app.</strong> No separate Proto Contacts account is required. We use no ads, analytics, or tracking and run no sync server. The app does not send us contacts, usage, or diagnostic data. We cannot read your vault or recover its keys.</p>
+
+      <h2>Where your contacts go</h2>
+      <p>With permission, the app imports selected Apple Contacts accounts into an encrypted vault on your device. Your Me Card is included in that private import even when <strong>Include Me Card</strong> is off. Removing eligible synced-account originals defaults off and requires an account choice. Editable iPhone/iPad sharing can separately consolidate validated local duplicates. An explicit vault deletion can also remove its linked, unchanged local original, subject to Me Card protection and review of changed data. See the <a href="guide.html#local-duplicates">cleanup guide</a>.</p>
+      <p><strong>Encrypted vault sync starts on for new vaults.</strong> Contact contents are encrypted before private CloudKit storage receives them. This is <strong>zero-access encryption</strong> for stored vault contents; the synced key travels separately through <a href="https://support.apple.com/guide/security/sec1c89c6f3b/web">end-to-end-encrypted iCloud Keychain</a>. Apple can process account and record metadata, such as size and timing, under <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+      <p><strong>System Contacts Sharing</strong> makes your chosen contacts and fields readable to system Contacts and other authorized apps. <strong>Include Me Card</strong> separately controls sharing and original removal of that card on this device. Native account copies, exported contacts, notification previews, and data other apps save fall outside vault encryption.</p>
+      <p><strong>Date Reminders</strong> schedules local notifications with system permission. Names are hidden by default; enabling names can expose them in notification previews. <strong>Export Backup</strong> writes a file to your chosen destination, whose storage provider may receive it. The selected archive encryption protects its contents; disabling both encryption layers produces a readable file. Archive secrets are separate from the vault key.</p>
+
+      <h2>Your controls and deletion</h2>
+      <p>Revoke Contacts or notification access in system Settings. In the app, choose import accounts, turn vault sync off, and change or withdraw system sharing. These actions do not recall independent copies or data already saved by another app. On Mac, see the <a href="guide.html#mac-privacy-setup">Mac privacy setup</a> for the local sharing account.</p>
+      <p><a href="guide.html#return-to-icloud">Export Contacts</a> creates reviewed readable copies in your chosen native account. Preparation pauses automatic import and original removal and shares that pause when vault sync is enabled. <strong>Reset Database on All Devices</strong> confirms erasure of vault data on updated linked devices when they next sync. It retains encryption keys, app preferences, and existing writable native cards—including previously shared copies and their identifiers—while retiring their old ownership mappings. The read-only provider view is cleared. Offline devices cannot receive that erasure until they reconnect.</p>
+      <p>Removing local app data or uninstalling does not restore originals you removed. Encrypted CloudKit data can remain in your Apple Account until removed through <a href="https://support.apple.com/guide/icloud/mm62d92d6b3e/icloud">iCloud storage controls</a>. Exported files, shared system copies, and independent backups have separate lifetimes.</p>
+
+      <h2>Recovery and estate access</h2>
+      <p>We cannot access or recover your vault. Apple’s <a href="https://support.apple.com/en-us/102631">Legacy Contact</a> does not by itself unlock Proto Contacts. See the <a href="guide.html#recovery-and-estate">recovery guide</a> for backups, device sync, and estate access.</p>
+
+      <h2>This site and messages</h2>
+      <p>This site uses GitHub Pages. We add no analytics, tracking scripts, or advertising cookies; GitHub may process ordinary request data such as your IP address. If you send us a support message or error details, we receive what you send, use it to answer you, and keep it as needed for that purpose. Request deletion through the <a href="faq.html#contact">support contact</a>.</p>
+      <p class="meta">Policy changes will be posted here. Contact: <a href="faq.html#contact">support page</a>.</p>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="wrap"><p>© 2026 James J Kalafus. Proto Contacts is an independent project.</p><nav class="footer-links" aria-label="Footer navigation"><a href="./">Home</a><a href="guide.html">How to</a><a href="faq.html">FAQ &amp; support</a><a href="terms.html">Terms</a><a href="for-proton.html">For Proton</a></nav></div></footer>
+</body>
+</html>
