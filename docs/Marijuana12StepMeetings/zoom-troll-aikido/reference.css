@@ -105,6 +105,12 @@ footer { display: block; margin: 0; padding: 0; border: 0; }
 .perspective li { color: var(--muted); font-weight: 300; }
 .context-label, .anticipation-label { font-weight: 550; }
 .perspective .anticipating { color: var(--text); }
+.optional-announcement { margin-top: 24px; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.optional-announcement summary { padding: 0; color: var(--text); }
+.announcement-heading { font-size: 1.15rem; font-weight: 650; }
+.announcement-note { display: block; margin-top: 8px; color: var(--muted); font-size: 0.95rem; }
+.optional-announcement blockquote { margin: 16px 0 0; }
+.optional-announcement blockquote > :last-child { margin-bottom: 0; }
 .screenshots { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 summary { color: var(--link); cursor: pointer; padding: 6px 0; font-size: 0.95rem; }
 summary:focus-visible { outline: 3px solid var(--link); outline-offset: 5px; }
@@ -146,5 +152,5 @@ figure img { display: block; width: 100%; height: auto; border-radius: 8px; }
   .headline-note-trigger { outline: none; }
   main { padding-top: 16px; }
   .step, .perspective { padding: 16px; }
-  .reassurance, .caution { break-inside: avoid; }
+  .reassurance, .caution, .optional-announcement { break-inside: avoid; }
 }
