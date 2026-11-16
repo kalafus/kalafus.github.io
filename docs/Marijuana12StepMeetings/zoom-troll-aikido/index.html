@@ -26,15 +26,63 @@
         <a class="download" href="light/index.html">Download light PDF</a>
         <a class="download secondary" href="dark/index.html">Download dark PDF</a>
       </div>
-      <p class="download-note">Full two-page reference.</p>
+      <p class="download-note">Printable quick reference.</p>
     </header>
 
-    <main id="response" tabindex="-1">
-      <header class="section-header">
+    <main>
+      <details class="optional-announcement" id="meeting-preparation" aria-labelledby="meeting-preparation-heading">
+        <summary>
+          <span class="announcement-heading" id="meeting-preparation-heading">For every meeting</span>
+        </summary>
+        <div class="role-check-body">
+          <ul>
+            <li><strong>Verify co-host identities:</strong> Contact each co-host at a known number or through the group’s service chat.</li>
+            <li><strong>Assign backup host — host only:</strong> <strong>Participants → [verified person] → More (…) or long-press → Make co-host.</strong></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="optional-announcement" id="anticipating-disruption" aria-labelledby="anticipating-disruption-heading">
+        <summary>
+          <span class="announcement-heading" id="anticipating-disruption-heading">When anticipating disruption</span>
+        </summary>
+        <div class="anticipation-body">
+          <ul class="anticipation-actions">
+            <li>Apply restrictions before the meeting.</li>
+            <li>Remember the <strong>Mute</strong> and <strong>Stop video</strong> buttons (stopped video cannot self-start).</li>
+            <li>
+              <section id="member-reminder" aria-labelledby="member-reminder-heading" tabindex="-1">
+                <div class="announcement-caption">
+                  <p class="announcement-title" id="member-reminder-heading">Optional announcement</p>
+                  <p class="announcement-note">Intended for occasional use, not as a standing announcement.</p>
+                </div>
+                <blockquote class="reassurance" id="protect-yourself" tabindex="-1">
+                  <p>“If a disruption occurs, while the hosts take action, you <strong>can disengage from disruptive content.</strong> You might look away, turn off your screen, remove your earbuds, or turn the volume all the way down. <strong>Your attention is yours to direct</strong> while the hosts restore a recovery-oriented container.”</p>
+                </blockquote>
+              </section>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <header class="section-header" id="response" tabindex="-1">
         <p class="eyebrow active-disruption">Active Disruption</p>
         <h2 class="response-title">3-Step Response</h2>
         <p class="response-summary"><a href="#suspend">1. <em class="action-word">Suspend</em></a> disruption and <a href="#continue">2. <em class="action-word">Continue</em></a> <span class="regular">shares</span>, then <a href="#restore">3. <em class="action-word">Restore</em></a> <span class="regular">settings</span>.</p>
       </header>
+
+      <details class="step role-check" id="secure-roles" aria-labelledby="secure-roles-heading">
+        <summary>
+          <span class="step-number">0.</span> <span id="secure-roles-heading"><em class="action-word">Secure</em> host and co-host privileges</span>
+          <span class="role-check-note">If a host or co-host is disrupting the meeting.</span>
+        </summary>
+        <div class="role-check-body">
+          <ul>
+            <li><strong>Reclaim host — meeting’s Zoom account user only:</strong> Join the meeting → <strong>Reclaim host.</strong></li>
+            <li><strong>Revoke co-host — host only:</strong> <strong>Participants → [co-host] → More (…) or long-press → Revoke co-host permission.</strong> If you cannot identify the disruptor, repeat for every unverified or unvalidated co-host.</li>
+          </ul>
+        </div>
+      </details>
 
       <section class="step" id="suspend" aria-labelledby="suspend-heading">
         <h3 id="suspend-heading"><span class="step-number">1.</span> <em class="action-word">Suspend</em> disruption</h3>
@@ -66,7 +114,7 @@
           <li>
             <p>First, <em class="instruction-emphasis">REASSURANCE</em> (adhere precisely to ALL steps, or no guarantees!):</p>
             <blockquote class="reassurance">
-              <p>“We’ve briefly suspended the meeting to restore serenity, &amp; will now continue as normal. Video, unmute, &amp; chat are disabled, so no further disruption is possible. Please share with confidence!”</p>
+              <p>“We’ve briefly suspended the meeting to recover serenity. Video, unmute, &amp; chat are disabled, so no further disruption is possible. Today’s disruptors, tomorrow’s MA members. Suggested mantra: <span class="mantra">love them, calm me.</span> Now, please share with confidence!”</p>
             </blockquote>
           </li>
           <li>
@@ -111,28 +159,16 @@
         <p id="audio-status" class="audio-status" role="status" hidden></p>
         <ul>
           <li><strong class="context-label">The objective:</strong> It’s not to defeat, punish, identify, or expel. It’s to make disruption ineffective.</li>
-          <li class="anticipating"><strong class="anticipation-label">When anticipating disruption:</strong> Apply restrictions before the meeting. Stay by the <strong>Mute</strong> and <strong>Stop video</strong> buttons (stopped video cannot restart without host).</li>
           <li><strong class="context-label">No need to remove anyone.</strong> With no way to disrupt, zoom trolls disengage.</li>
-          <li><strong class="context-label">Today’s Disruptors, Tomorrow’s MA Members!</strong> Repeat: “<span class="mantra">love them, calm me.</span>”</li>
         </ul>
-        <details class="optional-announcement" id="member-reminder" aria-labelledby="member-reminder-heading">
-          <summary>
-            <span class="announcement-heading" id="member-reminder-heading">Optional agency announcement when experiencing recurring disruptions</span>
-            <span class="announcement-note">Use when a meeting is experiencing recurring disruptions; not as a standing general announcement.</span>
-          </summary>
-          <blockquote>
-            <p>If a disruption occurs, while the hosts take action, you <strong>can disengage from disruptive content.</strong></p>
-            <p>You might look away, turn off your screen, remove your earbuds, or turn the volume all the way down.</p>
-            <p><strong>You’re in control</strong> of whether you give your attention to a disruption while the hosts restore a recovery-oriented container.</p>
-          </blockquote>
-        </details>
       </aside>
+
     </main>
 
     <footer class="page-footer">
       <p id="concept-five" role="doc-footnote"><span aria-hidden="true">*</span><span id="concept-five-text">Group Conscience (Concept Five) to build consensus.</span></p>
       <a href="#response">Back to the three-step response</a>
-      <p class="edition"><time datetime="2026-11-16">November 16, 2026</time> · v4.9.0</p>
+      <p class="edition"><time datetime="2026-11-16">November 16, 2026</time> · v4.10.0</p>
       <aside class="app-store-promo" aria-label="Marijuana 12-Step Meetings app">
         <div class="app-store-copy">
           <p class="app-store-name">Marijuana 12-Step Meetings</p>
