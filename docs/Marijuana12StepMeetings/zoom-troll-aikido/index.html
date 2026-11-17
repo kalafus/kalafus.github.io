@@ -4,29 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A quick reference for responding to Zoom meeting disruptions: suspend disruption, continue shares, and restore settings. Includes light and dark PDF downloads.">
+  <link rel="canonical" href="https://kalafus.github.io/Marijuana12StepMeetings/zoom-troll-aikido/">
   <link rel="stylesheet" href="../app-store.css">
   <title>Serenity Strategy for Zoom Trolls – Quick Reference</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="reference.css">
-  <script src="reference.js" defer></script>
+  <link rel="stylesheet" href="reference.css?v=4.11.0">
+  <script src="reference.js?v=4.11.0" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#response">Skip to the three-step response</a>
   <div class="page">
-    <header class="page-header">
+    <header class="page-header quick-reference-header">
       <a class="back-link" href="../index.html">Marijuana 12-Step Meetings</a>
-      <p class="eyebrow quick-reference">Quick Reference</p>
+      <nav class="resource-nav" aria-label="Zoom meeting guides">
+        <a href="index.html" aria-current="page">Quick reference</a>
+        <a href="admin-preparation/index.html">Admin preparation</a>
+      </nav>
       <div class="headline-note">
-        <h1><button id="concept-five-ref" class="headline-note-trigger" type="button" aria-describedby="concept-five-text" aria-controls="concept-five-tooltip" aria-expanded="false">Serenity Strategy<br>for Zoom Trolls<sup class="footnote-marker" aria-hidden="true">*</sup></button></h1>
+        <h1><button id="concept-five-ref" class="headline-note-trigger" type="button" aria-describedby="concept-five-text" aria-controls="concept-five-tooltip" aria-expanded="false"><span>Serenity Strategy</span> <span>for Zoom Trolls<sup class="footnote-marker" aria-hidden="true">*</sup></span></button></h1>
         <span id="concept-five-tooltip" class="footnote-tooltip" role="tooltip" hidden><span class="footnote-tooltip-text"></span></span>
       </div>
-      <p class="intro">Calm &amp; Confident<span class="context">, not hyper-vigilant.</span><br><strong class="urgent">Recovery can’t wait! Continue the meeting.</strong></p>
-      <div class="downloads" role="group" aria-label="PDF downloads">
-        <!-- Versioned PDF destinations are owned by the two forwarding pages. -->
-        <a class="download" href="light/index.html">Download light PDF</a>
-        <a class="download secondary" href="dark/index.html">Download dark PDF</a>
-      </div>
-      <p class="download-note">Printable quick reference.</p>
+      <p class="intro"><span>Calm &amp; Confident<span class="context">,</span></span> <span class="context">not hyper-vigilant.</span><br><strong class="urgent"><span>Recovery can’t wait!</span> <span>Continue the meeting.</span></strong></p>
+      <aside class="perspective" aria-labelledby="perspective-heading">
+        <a class="audio-quote" href="#obisonye-audio" aria-controls="obisonye-audio">
+          <h2 id="perspective-heading"><span>Forgive them, big whoop…</span> <span>Don’t fight back: fight forward.</span></h2>
+          <p class="attribution">—Ola Obisonye</p>
+        </a>
+        <audio id="obisonye-audio" class="quote-audio" controls preload="none" tabindex="0" src="audio/ola-obisonye-dont-fight-back-fight-forward.m4a" aria-label="Ola Obisonye: Forgive them, big whoop; don’t fight back, fight forward"></audio>
+        <p id="audio-status" class="audio-status" role="status" hidden></p>
+        <ul>
+          <li class="objective"><span><strong class="context-label">The objective:</strong> It’s not to defeat, punish, identify, or expel.</span> <span>It’s to make disruption ineffective.</span></li>
+          <li><strong class="context-label">No need to remove anyone.</strong> With no way to disrupt, zoom trolls disengage.</li>
+        </ul>
+      </aside>
     </header>
 
     <main>
@@ -38,6 +48,13 @@
           <ul>
             <li><strong>Verify co-host identities:</strong> Contact each co-host at a known number or through the group’s service chat.</li>
             <li><strong>Assign backup host — host only:</strong> <strong>Participants → [verified person] → More (…) or long-press → Make co-host.</strong></li>
+            <li id="control-availability"><strong>Host tools vary:</strong> Some <strong>Host tools</strong> are unavailable to co-hosts or mobile app users.
+              <ul>
+                <li>Participants may still be able to use these features even when you can’t see them.</li>
+                <li>In the mobile app, <strong class="zoom-destructive">Suspend participant activities</strong> or <strong class="zoom-control">Turn all off</strong> may still disable some hidden tools.</li>
+                <li>Co-hosts cannot bypass these limits to disable host-only features. Hosts may need to review those settings.</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </details>
@@ -86,12 +103,13 @@
 
       <section class="step" id="suspend" aria-labelledby="suspend-heading">
         <h3 id="suspend-heading"><span class="step-number">1.</span> <em class="action-word">Suspend</em> disruption</h3>
-        <p class="control-path"><strong>Host tools</strong> → <strong class="zoom-destructive">Suspend participant activities</strong> or <span class="zoom-control">Turn all off</span> → <strong>Suspend</strong>.</p>
+        <p class="control-path"><strong>Host tools</strong> → <strong class="zoom-destructive">Suspend participant activities</strong> or <strong class="zoom-control">Turn all off</strong> → <strong>Suspend</strong>.</p>
         <ol class="substeps" type="A">
           <li>
-            <p><strong class="zoom-destructive">Suspend participant activities</strong> or <span class="zoom-control">Turn all off</span> disables <strong>Host tools</strong> (<strong>Unmute</strong>, <strong>Video</strong>), muting everyone &amp; stopping all video (including <em>you</em> &amp; <em>the sharer</em>).</p>
+            <p><strong class="zoom-destructive">Suspend participant activities</strong> or <strong class="zoom-control">Turn all off</strong> disables <strong>Host tools</strong> (<strong>Unmute</strong>, <strong>Video</strong>), muting everyone &amp; stopping all video (including <em>you</em> &amp; <em>the sharer</em>).</p>
             <ul>
               <li>Co-hosts can <strong>Unmute themselves</strong>, <strong>Start video</strong>, and <span class="zoom-ask">Ask to unmute</span>.</li>
+              <li id="cohost-host-tools"><strong>Co-hosts cannot disable some features</strong> via <strong class="zoom-destructive">Suspend</strong> or <strong class="zoom-control">Turn all off</strong>.</li>
             </ul>
           </li>
         </ol>
@@ -150,25 +168,20 @@
         </details>
       </section>
 
-      <aside class="perspective" aria-labelledby="perspective-heading">
-        <a class="audio-quote" href="#obisonye-audio" aria-controls="obisonye-audio">
-          <h2 id="perspective-heading">Forgive them, big whoop…<br>Don’t fight back: fight forward.</h2>
-          <p class="attribution">—Ola Obisonye</p>
-        </a>
-        <audio id="obisonye-audio" class="quote-audio" controls preload="none" tabindex="0" src="audio/ola-obisonye-dont-fight-back-fight-forward.m4a" aria-label="Ola Obisonye: Forgive them, big whoop; don’t fight back, fight forward"></audio>
-        <p id="audio-status" class="audio-status" role="status" hidden></p>
-        <ul>
-          <li><strong class="context-label">The objective:</strong> It’s not to defeat, punish, identify, or expel. It’s to make disruption ineffective.</li>
-          <li><strong class="context-label">No need to remove anyone.</strong> With no way to disrupt, zoom trolls disengage.</li>
-        </ul>
-      </aside>
+      <div class="downloads" role="group" aria-label="PDF downloads">
+        <!-- Versioned PDF destinations are owned by the two forwarding pages. -->
+        <a class="download" href="light/index.html">Download light PDF</a>
+        <a class="download secondary" href="dark/index.html">Download dark PDF</a>
+      </div>
+      <p class="download-note">Printable quick reference.</p>
 
     </main>
 
     <footer class="page-footer">
       <p id="concept-five" role="doc-footnote"><span aria-hidden="true">*</span><span id="concept-five-text">Group Conscience (Concept Five) to build consensus.</span></p>
       <a href="#response">Back to the three-step response</a>
-      <p class="edition"><time datetime="2026-11-16">November 16, 2026</time> · v4.10.0</p>
+      <p><a href="admin-preparation/index.html">Admin preparation</a></p>
+      <p class="edition"><time datetime="2026-11-16">November 16, 2026</time> · v4.11.0</p>
       <aside class="app-store-promo" aria-label="Marijuana 12-Step Meetings app">
         <div class="app-store-copy">
           <p class="app-store-name">Marijuana 12-Step Meetings</p>

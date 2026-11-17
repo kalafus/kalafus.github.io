@@ -39,22 +39,23 @@
   const quote = document.querySelector(".audio-quote");
   const audio = document.getElementById("obisonye-audio");
   const status = document.getElementById("audio-status");
-  const showAudioError = () => {
-    status.textContent = "Audio couldn’t start. Try the player’s Play button.";
-    status.hidden = false;
-  };
-
-  quote.addEventListener("click", async (event) => {
-    event.preventDefault();
-    audio.focus({ preventScroll: true });
-    status.hidden = true;
-    try {
-      await audio.play();
-    } catch (error) {
-      // Pausing or replacing a pending play request is an expected cancellation.
-      if (error.name !== "AbortError" && audio.paused) showAudioError();
-    }
-  });
-  audio.addEventListener("playing", () => { status.hidden = true; });
-  audio.addEventListener("error", showAudioError);
+  if (quote && audio && status) {
+    const showAudioError = () => {
+      status.textContent = "Audio couldn’t start. Try the player’s Play button.";
+      status.hidden = false;
+    };
+    quote.addEventListener("click", async (event) => {
+      event.preventDefault();
+      audio.focus({ preventScroll: true });
+      status.hidden = true;
+      try {
+        await audio.play();
+      } catch (error) {
+        // Pausing or replacing a pending play request is an expected cancellation.
+        if (error.name !== "AbortError" && audio.paused) showAudioError();
+      }
+    });
+    audio.addEventListener("playing", () => { status.hidden = true; });
+    audio.addEventListener("error", showAudioError);
+  }
 }

@@ -1,7 +1,7 @@
 """Shared typography and publication for the recovery resource PDFs.
 
-Dependencies: reportlab and lxml. Both resource builders use the same embedded
-Arial/Georgia fonts, light/dark palettes, page bounds, and atomic file publication.
+Dependencies: reportlab and lxml. Resource builders share embedded Arial/Georgia
+fonts, page bounds, and atomic publication, with light/dark palettes per resource.
 Successful publication retires superseded editions of the same document/theme.
 """
 
@@ -58,6 +58,9 @@ def inline(element, *, internal_links=False):
             result += "<br/>"
         elif child.get("aria-hidden") == "true":
             pass
+        elif child.tag == "span" and not child.attrib:
+            # Plain spans group web phrases without changing PDF text styling.
+            result += content
         else:
             raise ValueError(f"Unsupported inline element: {child.tag}")
         result += escape(child.tail or "")
@@ -146,7 +149,8 @@ def write_stories(path, stories, *, title, subtitle, label, edition, theme,
         if required > available:
             raise ValueError(f"Page {number} needs {required:.1f}pt; only {available:.1f}pt available. Revise the layout explicitly.")
 
-    pdf = canvas.Canvas(str(path), pagesize=(WIDTH, HEIGHT), pageCompression=1, invariant=1)
+    pdf = canvas.Canvas(str(path), pagesize=(WIDTH, HEIGHT), pageCompression=1, invariant=1,
+                        initialFontName="Body", initialFontSize=12)
     pdf.setTitle(f"{title} | {label} | {edition} | {theme.title()}")
     pdf.setAuthor(author)
     pdf.setSubject(subtitle)
