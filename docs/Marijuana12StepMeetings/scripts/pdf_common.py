@@ -2,9 +2,11 @@
 
 Dependencies: reportlab and lxml. Both resource builders use the same embedded
 Arial/Georgia fonts, light/dark palettes, page bounds, and atomic file publication.
+Successful publication retires superseded editions of the same document/theme.
 """
 
 import os
+import re
 from html import escape
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -182,8 +184,45 @@ def pdf_destination(forwarding_page, expected):
     return path
 
 
+def _edition_family(path):
+    """Identify the document and theme without conflating its reading views."""
+    match = re.fullmatch(r"(.+)-\d{4}-\d{2}-\d{2}-v\d+(?:\.\d+)*-(light|dark)\.pdf", path.name)
+    if match:
+        return match.group(1), match.group(2)
+    match = re.fullmatch(r"(.+ \| )\d{4}-\d{2}-\d{2}-[^|]+?( \| Dark)?\.pdf", path.name)
+    if match:
+        return match.group(1), "dark" if match.group(2) else "light"
+    return None
+
+
+def prune_superseded_pdfs(destinations):
+    """Keep current files; retire only their own versioned document/theme peers.
+
+    Every replacement must exist before any old file is removed. Unrelated
+    PDFs and independently published reading views remain outside this scope.
+    """
+    current = {Path(path) for path in destinations}
+    managed = {}
+    for path in current:
+        family = _edition_family(path)
+        if family is None:
+            raise ValueError(f"Unrecognized versioned PDF filename: {path}")
+        if not path.is_file():
+            raise FileNotFoundError(f"Current PDF is not ready: {path}")
+        managed.setdefault(path.parent, set()).add(family)
+    superseded = sorted(path for directory, families in managed.items()
+                        for path in directory.glob("*.pdf")
+                        if path not in current and path.is_file()
+                        and _edition_family(path) in families)
+    for path in superseded:
+        path.unlink(missing_ok=True)
+    if superseded:
+        print(f"Removed {len(superseded)} superseded PDFs.")
+    return superseded
+
+
 def publish_pdf_set(publications, render):
-    """Prepare every edition before replacing any published file."""
+    """Prepare all files, publish them, then retire their superseded editions."""
     with TemporaryDirectory(prefix="recovery-pdfs-") as temporary:
         for index, (document, theme, edition, _) in enumerate(publications):
             render(Path(temporary) / f"{index}.pdf", document, theme, edition)
@@ -196,3 +235,4 @@ def publish_pdf_set(publications, render):
             finally:
                 temporary_output.unlink(missing_ok=True)
             print(destination)
+        prune_superseded_pdfs(destination for _, _, _, destination in publications)

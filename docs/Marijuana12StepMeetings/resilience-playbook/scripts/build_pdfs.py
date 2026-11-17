@@ -212,7 +212,7 @@ def main():
     parser.add_argument("--font-dir", type=Path, default=Path("/System/Library/Fonts/Supplemental"))
     args = parser.parse_args()
     register_fonts(args.font_dir)
-    # Versioned downloads retain their published URLs after the guide's move.
+    # Current downloads use the resource's original PDF directory.
     pdf_directory = ROOT.parent / "openhearted-not-unguarded" / "pdfs"
     publications = []
     for source, routes, prefix in (
