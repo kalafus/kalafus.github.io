@@ -7,6 +7,7 @@ from urllib.parse import unquote, urlsplit
 from lxml import html
 import pdfplumber
 from pypdf import PdfReader
+from pypdf.generic import ContentStream
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,6 +97,51 @@ class PublicationTests(unittest.TestCase):
             self.assertNotIn('Admin preparation', text)
             self.assertFalse(any(annotation.get_object().get('/A', {}).get('/URI') == self.canonical
                                  for annotation in reader.pages[0].get('/Annots', [])))
+
+    def test_quick_announcements_match_their_tagged_print_copy(self):
+        source = [normalise(node.text_content()) for node in (
+            self.quick.get_element_by_id('continue').xpath('.//blockquote/p')[0],
+            self.quick.get_element_by_id('protect-yourself').find('p'),
+            self.quick.get_element_by_id('member-reminder').xpath('.//p[@class="announcement-note"]')[0],
+        )]
+        for theme in ('light', 'dark'):
+            reader = PdfReader(download_path(QUICK, theme))
+            operations = ContentStream(reader.pages[0]['/Contents'], reader).operations
+            tagged_copy = [normalise(args[1]['/ActualText']) for args, operator in operations
+                           if operator == b'BDC' and len(args) > 1
+                           and isinstance(args[1], dict) and '/ActualText' in args[1]]
+            with self.subTest(theme=theme):
+                for paragraph in source:
+                    self.assertIn(paragraph, tagged_copy)
+
+    def test_printed_cohost_controls_keep_color_emphasis_and_underlines(self):
+        warning = normalise(self.quick.get_element_by_id('cohost-host-tools').text_content())
+        for theme in ('light', 'dark'):
+            path = download_path(QUICK, theme)
+            reader = PdfReader(path)
+            operations = ContentStream(reader.pages[0]['/Contents'], reader).operations
+            identifier = next(int(args[1]['/MCID']) for args, operator in operations
+                              if operator == b'BDC' and len(args) > 1 and isinstance(args[1], dict)
+                              and normalise(args[1].get('/ActualText', '')) == warning)
+            with pdfplumber.open(path) as document:
+                page = document.pages[0]
+                chars = [char for char in page.chars if char.get('mcid') == identifier]
+                text = ''.join(char['text'] for char in chars)
+                for command, dominant_channel in (('Suspend', 0), ('Turn all off', 2)):
+                    with self.subTest(theme=theme, command=command):
+                        start = text.index(command)
+                        selected = chars[start:start + len(command)]
+                        color = selected[0]['non_stroking_color']
+                        self.assertTrue(all(char['non_stroking_color'] == color for char in selected))
+                        self.assertGreater(color[dominant_channel], color[2 - dominant_channel])
+                        self.assertTrue(any('Bold' in char['fontname'] for char in selected))
+                        left = min(char['x0'] for char in selected)
+                        right = max(char['x1'] for char in selected)
+                        self.assertTrue(any(
+                            abs(line['x0'] - left) < .1 and abs(line['x1'] - right) < .1
+                            and line['stroking_color'] == color
+                            and selected[0]['top'] < line['top'] < selected[0]['bottom'] + 2
+                            for line in page.lines if line.get('mcid') == identifier))
 
 
 if __name__ == '__main__':

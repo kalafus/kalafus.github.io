@@ -103,6 +103,7 @@ blockquote { margin: 20px 0; }
 }
 .reassurance { padding: 20px; border: 2px solid var(--script-text); border-radius: 12px; background: var(--script-background); color: var(--script-text); font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 650; font-style: italic; font-variant-caps: small-caps; line-height: 1.6; }
 .reassurance p { margin: 0; }
+.reassurance small { font-weight: 400; font-style: normal; font-variant-caps: normal; }
 .tradition { padding-inline: 16px; font-weight: 300; font-style: italic; text-align: left; }
 .tradition p { margin-bottom: 8px; font-style: italic; }
 footer { display: block; margin: 0; padding: 0; border: 0; }
@@ -117,7 +118,6 @@ footer { display: block; margin: 0; padding: 0; border: 0; }
 .perspective ul { margin: 0; }
 .perspective li { color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.45; }
 .perspective li + li { margin-top: 8px; }
-.perspective .objective > span { display: inline-block; max-width: 100%; }
 .context-label { font-weight: 550; }
 .optional-announcement { margin: 0 0 var(--reference-block-gap); padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .optional-announcement summary { padding: 0; color: var(--text); }
